@@ -2,13 +2,11 @@
 //  AppDelegate.m
 //  MXNavigationController
 //
-//  Created by Max on 15/2/27.
+//  Created by Max on 15/9/21.
 //  Copyright (c) 2015年 Max. All rights reserved.
 //
 
 #import "AppDelegate.h"
-#import "ViewController.h"
-#import "MXNavigationController.h"
 
 @interface AppDelegate ()
 
@@ -19,12 +17,6 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    ViewController *vc = [[ViewController alloc] init];
-    MXNavigationController *navi = [MXNavigationController new];
-    navi.rootViewController = vc;
-    [self.window setRootViewController:navi];
-    [self.window makeKeyAndVisible];
     return YES;
 }
 
