@@ -13,6 +13,9 @@
 		504AB2FF1BB0109F001937AF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 504AB2FD1BB0109F001937AF /* Main.storyboard */; };
 		504AB3011BB0109F001937AF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 504AB3001BB0109F001937AF /* Images.xcassets */; };
 		504AB3041BB0109F001937AF /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 504AB3021BB0109F001937AF /* LaunchScreen.xib */; };
+		504AB31F1BB12299001937AF /* MXNavigator.m in Sources */ = {isa = PBXBuildFile; fileRef = 504AB31E1BB12299001937AF /* MXNavigator.m */; };
+		504AB3231BB12439001937AF /* BaseAnimate.m in Sources */ = {isa = PBXBuildFile; fileRef = 504AB3221BB12439001937AF /* BaseAnimate.m */; };
+		504AB3291BB12FD7001937AF /* UIViewController+mxNavi.m in Sources */ = {isa = PBXBuildFile; fileRef = 504AB3281BB12FD7001937AF /* UIViewController+mxNavi.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +40,12 @@
 		504AB3001BB0109F001937AF /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		504AB3031BB0109F001937AF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		504AB3091BB0109F001937AF /* MXNavigationControllerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MXNavigationControllerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		504AB31D1BB12299001937AF /* MXNavigator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXNavigator.h; sourceTree = "<group>"; };
+		504AB31E1BB12299001937AF /* MXNavigator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXNavigator.m; sourceTree = "<group>"; };
+		504AB3211BB12439001937AF /* BaseAnimate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseAnimate.h; sourceTree = "<group>"; };
+		504AB3221BB12439001937AF /* BaseAnimate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseAnimate.m; sourceTree = "<group>"; };
+		504AB3271BB12FD7001937AF /* UIViewController+mxNavi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+mxNavi.h"; sourceTree = "<group>"; };
+		504AB3281BB12FD7001937AF /* UIViewController+mxNavi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+mxNavi.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +86,7 @@
 		504AB2F21BB0109F001937AF /* MXNavigationController */ = {
 			isa = PBXGroup;
 			children = (
+				504AB31C1BB1228A001937AF /* MXNavigator */,
 				504AB2F71BB0109F001937AF /* AppDelegate.h */,
 				504AB2F81BB0109F001937AF /* AppDelegate.m */,
 				504AB2FA1BB0109F001937AF /* ViewController.h */,
@@ -96,6 +106,27 @@
 				504AB2F51BB0109F001937AF /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		504AB31C1BB1228A001937AF /* MXNavigator */ = {
+			isa = PBXGroup;
+			children = (
+				504AB3201BB122B6001937AF /* Animate */,
+				504AB31D1BB12299001937AF /* MXNavigator.h */,
+				504AB31E1BB12299001937AF /* MXNavigator.m */,
+				504AB3271BB12FD7001937AF /* UIViewController+mxNavi.h */,
+				504AB3281BB12FD7001937AF /* UIViewController+mxNavi.m */,
+			);
+			path = MXNavigator;
+			sourceTree = "<group>";
+		};
+		504AB3201BB122B6001937AF /* Animate */ = {
+			isa = PBXGroup;
+			children = (
+				504AB3211BB12439001937AF /* BaseAnimate.h */,
+				504AB3221BB12439001937AF /* BaseAnimate.m */,
+			);
+			path = Animate;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -198,9 +229,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				504AB31F1BB12299001937AF /* MXNavigator.m in Sources */,
 				504AB2FC1BB0109F001937AF /* ViewController.m in Sources */,
 				504AB2F91BB0109F001937AF /* AppDelegate.m in Sources */,
+				504AB3231BB12439001937AF /* BaseAnimate.m in Sources */,
 				504AB2F61BB0109F001937AF /* main.m in Sources */,
+				504AB3291BB12FD7001937AF /* UIViewController+mxNavi.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

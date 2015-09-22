@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "UIViewController+mxNavi.h"
 
 @interface ViewController ()
 
@@ -17,6 +18,19 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    UIButton *btn = [UIButton new];
+    [btn setFrame:CGRectMake(100, 100, 100, 100)];
+    [btn setBackgroundColor:[UIColor blackColor]];
+    [btn addTarget:self
+            action:@selector(onTapBtn)
+  forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:btn];
+}
+
+- (void)onTapBtn{
+    UIViewController *con = [UIViewController new];
+    [con.view setBackgroundColor:[UIColor yellowColor]];
+    [[self getNavigator] gotoPage:con];
 }
 
 - (void)didReceiveMemoryWarning {
