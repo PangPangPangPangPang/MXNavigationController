@@ -9,9 +9,26 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-@interface BaseAnimate : NSObject
+@interface BaseAnimate : NSObject{
+    CADisplayLink *_displayLink;
+    BOOL           _autoPlay;
+    BOOL           _displayStart;
+    BOOL           _displayOver;
+    
+    NSTimeInterval _startTime;
+    NSTimeInterval _endTime;
+    NSTimeInterval _duringTime;
+    CGFloat        _process;
+    CGFloat        _startProcess;
+    CGFloat        _endProcess;
+}
+
 
 @property (nonatomic, assign)UIView *backgroundView;
 @property (nonatomic, assign)UIView *foregroundView;
+@property (nonatomic, assign)UIView *maskView;
+
+- (void)play;
+- (void)updateProcess:(CGFloat)process;
 
 @end

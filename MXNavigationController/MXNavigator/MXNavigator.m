@@ -8,6 +8,7 @@
 
 #import "MXNavigator.h"
 #import "UIViewController+mxNavi.h"
+#import "R2LAnimate.h"
 
 @implementation MXNavigator
 
@@ -29,42 +30,20 @@
 }
 
 - (void)gotoPage:(UIViewController *)pageController{
-    [self cycleFromViewController:_currentPageController toViewController:pageController];
+    R2LAnimate *animate = [R2LAnimate new];
+    animate.backgroundView = _currentPageController.view;
+    animate.foregroundView = pageController.view;
+    [pageController willMoveToParentViewController:self];
+    [pageController.view setFrame:[self screenFrame]];
+    [self addChildViewController:pageController];
+    [self.view addSubview:pageController.view];
+    [pageController didMoveToParentViewController:self];
+    [animate play];
+    [self setCurrentPageController:pageController];
 }
 
 - (void)popPage{
     
-}
-
-- (void)cycleFromViewController:(UIViewController*)oldVC
-               toViewController:(UIViewController*)newVC{
-    [oldVC willMoveToParentViewController:nil];
-    [newVC willMoveToParentViewController:self];
-    [self addChildViewController:newVC];
-    
-    [newVC.view setFrame:CGRectMake([self screenFrame].size.width,
-                                    [self screenFrame].origin.y,
-                                    [self screenFrame].size.width,
-                                    [self screenFrame].size.height)];
-    
-    [self transitionFromViewController:oldVC
-                      toViewController:newVC
-                              duration:0.4
-                               options:UIViewAnimationOptionLayoutSubviews
-                            animations:^{
-                                [newVC.view setFrame:[self screenFrame]];
-                                [oldVC.view setFrame:CGRectMake(-[self screenFrame].size.width,
-                                                                [self screenFrame].origin.y,
-                                                                [self screenFrame].size.width,
-                                                                [self screenFrame].size.height)];
-        
-    }
-                            completion:^(BOOL finished) {
-                                [self setCurrentPageController:newVC];
-                                [newVC didMoveToParentViewController:self];
-                                [oldVC removeFromParentViewController];
-        
-    }];
 }
 
 - (CGRect)screenFrame{

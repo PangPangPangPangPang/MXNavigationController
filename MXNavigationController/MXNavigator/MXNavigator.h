@@ -24,6 +24,5 @@
 
 - (void)gotoPage:(UIViewController *)pageController;
 - (void)popPage;
-- (void)cycleFromViewController:(UIViewController*)oldVC
-               toViewController:(UIViewController*)newVC;
+
 @end
