@@ -1,2 +1,2 @@
 # MXNavigationController
-##MXNavigationController is a self-relized container view controller
+##MXNavigationController is a self-realized container view controller
