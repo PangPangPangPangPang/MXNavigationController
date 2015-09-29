@@ -30,7 +30,8 @@
 - (void)onTapBtn{
     UIViewController *con = [UIViewController new];
     [con.view setBackgroundColor:[UIColor yellowColor]];
-    [[self getNavigator] gotoPage:con];
+    [[self getNavigator] gotoPage:con
+                   andAnimateType:AnimateR2L];
 }
 
 - (void)didReceiveMemoryWarning {

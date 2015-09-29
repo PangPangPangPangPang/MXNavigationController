@@ -9,6 +9,11 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+typedef NS_ENUM(NSInteger, MXAnimeDirection) {
+    AnimeForward  = 0,
+    AnimeBackward = 1
+};
+
 @interface BaseAnimate : NSObject{
     CADisplayLink *_displayLink;
     BOOL           _autoPlay;
@@ -21,13 +26,16 @@
     CGFloat        _process;
     CGFloat        _startProcess;
     CGFloat        _endProcess;
+    MXAnimeDirection _direction;
 }
 
 
-@property (nonatomic, assign)UIView *backgroundView;
-@property (nonatomic, assign)UIView *foregroundView;
-@property (nonatomic, assign)UIView *maskView;
+@property (nonatomic, weak)UIView *backgroundView;
+@property (nonatomic, weak)UIView *foregroundView;
+@property (nonatomic, weak)UIView *maskView;
+@property (nonatomic, assign)MXAnimeDirection direction;
 
+- (void)prepare;
 - (void)play;
 - (void)updateProcess:(CGFloat)process;
 

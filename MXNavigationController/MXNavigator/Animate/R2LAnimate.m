@@ -12,7 +12,7 @@
 
 - (void)updateProcess:(CGFloat)process{
     [super updateProcess:process];
-    [self.backgroundView setTransform:CGAffineTransformMakeTranslation(-self.backgroundView.frame.size.width * _process, 0)];
+    [self.backgroundView setTransform:CGAffineTransformMakeTranslation(-self.backgroundView.frame.size.width * 0.4 * _process, 0)];
     [self.foregroundView setTransform:CGAffineTransformMakeTranslation(self.foregroundView.frame.size.width * (1 - _process), 0)];
 }
 

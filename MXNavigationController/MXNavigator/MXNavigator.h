@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BaseAnimate.h"
+#import "Animate/MXAnimateHelper.h"
 
 @class MXNavigator;
 @protocol MXNavigatorProtocol <NSObject>
@@ -22,7 +24,8 @@
 @property (nonatomic, weak)UIViewController    *currentPageController;
 
 
-- (void)gotoPage:(UIViewController *)pageController;
+- (void)gotoPage:(UIViewController *)pageController
+  andAnimateType:(MXAnimateType)type;
 - (void)popPage;
 
 @end

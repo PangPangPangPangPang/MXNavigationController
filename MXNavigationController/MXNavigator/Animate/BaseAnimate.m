@@ -56,6 +56,10 @@
     }
 }
 
+- (void)prepare{
+    
+}
+
 - (void)updateProcess:(CGFloat)process{
     _process = process;
 }

@@ -8,7 +8,6 @@
 
 #import "MXNavigator.h"
 #import "UIViewController+mxNavi.h"
-#import "R2LAnimate.h"
 
 @implementation MXNavigator
 
@@ -29,21 +28,21 @@
     [_currentPageController setNavigator:self];
 }
 
-- (void)gotoPage:(UIViewController *)pageController{
-    R2LAnimate *animate = [R2LAnimate new];
+- (void)gotoPage:(UIViewController *)pageController andAnimateType:(MXAnimateType)type{
+    BaseAnimate *animate = [MXAnimateHelper animateWityType:type
+                                               andDirection:AnimeForward];
     animate.backgroundView = _currentPageController.view;
     animate.foregroundView = pageController.view;
     [pageController willMoveToParentViewController:self];
-    [pageController.view setFrame:[self screenFrame]];
+    [pageController.view setFrame:CGRectMake(0,
+                                             0,
+                                             _rootPageController.view.frame.size.width,
+                                             _rootPageController.view.frame.size.height)];
     [self addChildViewController:pageController];
     [self.view addSubview:pageController.view];
     [pageController didMoveToParentViewController:self];
     [animate play];
     [self setCurrentPageController:pageController];
-}
-
-- (void)popPage{
-    
 }
 
 - (CGRect)screenFrame{
