@@ -16,13 +16,16 @@
 - (void)setNavigator:(MXNavigator *)navigator;
 - (MXNavigator *)getNavigator;
 
+- (void)setAnimateType:(MXAnimateType)type;
+- (MXAnimateType)getAnimateType;
+
 @end
 
 @interface MXNavigator : UIViewController
 
 @property (nonatomic, strong)UIViewController  *rootPageController;
 @property (nonatomic, weak)UIViewController    *currentPageController;
-
+@property (nonatomic, strong)NSMutableArray    *pageArray;
 
 - (void)gotoPage:(UIViewController *)pageController
   andAnimateType:(MXAnimateType)type;

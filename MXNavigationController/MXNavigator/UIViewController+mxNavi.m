@@ -19,4 +19,13 @@
     return objc_getAssociatedObject(self, @"navigator");
 }
 
+- (void)setAnimateType:(MXAnimateType)type{
+    objc_setAssociatedObject(self, @"MXAnimateType", [NSNumber numberWithInteger:type], OBJC_ASSOCIATION_ASSIGN);
+}
+
+- (MXAnimateType)getAnimateType{
+    return [objc_getAssociatedObject(self, @"MXAnimateType") integerValue];
+}
+
+
 @end

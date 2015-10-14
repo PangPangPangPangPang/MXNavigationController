@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "MXNavigator.h"
+#import "MXAnimateHelper.h"
+#import "BaseAnimate.h"
 
 @interface UIViewController (mxNavi)<MXNavigatorProtocol>
 

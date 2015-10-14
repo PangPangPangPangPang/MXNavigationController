@@ -38,8 +38,14 @@
         _startTime = interval;
         _endTime = _startTime + _duringTime;
         _process = 0.f;
-        _startProcess = 0.f;
-        _endProcess = 1.f;
+        if (_direction == AnimeForward) {
+            _startProcess = 0.f;
+            _endProcess = 1.f;
+        }else{
+            _startProcess = 1.f;
+            _endProcess = 0.f;
+
+        }
     }
     _process = (interval - _startTime) / _duringTime * (_endProcess - _startProcess) + _startProcess;
     if (_displayOver) {
@@ -57,7 +63,7 @@
 }
 
 - (void)prepare{
-    
+    _foregroundView.alpha = 1;
 }
 
 - (void)updateProcess:(CGFloat)process{

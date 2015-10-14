@@ -19,6 +19,7 @@
 		504AB32D1BB13530001937AF /* MXMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 504AB32C1BB13530001937AF /* MXMessage.m */; };
 		504AB3301BB14567001937AF /* R2LAnimate.m in Sources */ = {isa = PBXBuildFile; fileRef = 504AB32F1BB14567001937AF /* R2LAnimate.m */; };
 		504AB3771BB2B231001937AF /* MXAnimateHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 504AB3761BB2B231001937AF /* MXAnimateHelper.m */; };
+		50F00AD51BBA8BFA003AAA97 /* MXPageMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 50F00AD41BBA8BFA003AAA97 /* MXPageMessage.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,8 @@
 		504AB32F1BB14567001937AF /* R2LAnimate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = R2LAnimate.m; sourceTree = "<group>"; };
 		504AB3751BB2B231001937AF /* MXAnimateHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXAnimateHelper.h; sourceTree = "<group>"; };
 		504AB3761BB2B231001937AF /* MXAnimateHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXAnimateHelper.m; sourceTree = "<group>"; };
+		50F00AD31BBA8BFA003AAA97 /* MXPageMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXPageMessage.h; sourceTree = "<group>"; };
+		50F00AD41BBA8BFA003AAA97 /* MXPageMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXPageMessage.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +151,8 @@
 			children = (
 				504AB32B1BB13530001937AF /* MXMessage.h */,
 				504AB32C1BB13530001937AF /* MXMessage.m */,
+				50F00AD31BBA8BFA003AAA97 /* MXPageMessage.h */,
+				50F00AD41BBA8BFA003AAA97 /* MXPageMessage.m */,
 			);
 			path = MXBase;
 			sourceTree = "<group>";
@@ -255,6 +260,7 @@
 				504AB31F1BB12299001937AF /* MXNavigator.m in Sources */,
 				504AB2FC1BB0109F001937AF /* ViewController.m in Sources */,
 				504AB2F91BB0109F001937AF /* AppDelegate.m in Sources */,
+				50F00AD51BBA8BFA003AAA97 /* MXPageMessage.m in Sources */,
 				504AB3231BB12439001937AF /* BaseAnimate.m in Sources */,
 				504AB3771BB2B231001937AF /* MXAnimateHelper.m in Sources */,
 				504AB32D1BB13530001937AF /* MXMessage.m in Sources */,
