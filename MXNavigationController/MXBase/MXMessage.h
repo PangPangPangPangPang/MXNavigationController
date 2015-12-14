@@ -10,11 +10,17 @@
 
 @interface MXMessage : NSObject
 
-@property (nonatomic, strong)NSString *scheme;
-@property (nonatomic, strong)NSString *host;
-@property (nonatomic, strong)NSString *relative;
-@property (nonatomic, strong)NSString *command;
+@property (nonatomic, copy)NSString *scheme;
+@property (nonatomic, copy)NSString *host;
+@property (nonatomic, copy)NSString *relative;
+@property (nonatomic, copy)NSString *command;
 @property (nonatomic, strong)NSMutableDictionary *args;
 
+- (instancetype)initWithScheme:(NSString *)scheme
+                          Host:(NSString *)host
+                      Relative:(NSString *)relative
+                       Commond:(NSString *)command
+                          Args:(NSDictionary *)args;
+- (instancetype)initWithUrl:(NSURL *)url;
 
 @end

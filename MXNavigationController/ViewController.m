@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "UIViewController+mxNavi.h"
+#import "MXMessage.h"
 
 @interface ViewController ()
 
@@ -25,10 +26,12 @@
             action:@selector(onTapBtn)
   forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btn];
+    MXMessage *message = [[MXMessage alloc] initWithUrl:[NSURL URLWithString:@"http://mmmmmax.wang/archives?ad=c&cd=2&dd=7"]];
+
 }
 
 - (void)onTapBtn{
-    UIViewController *con = [UIViewController new];
+    UIViewController *con = [ViewController new];
     [con.view setBackgroundColor:[UIColor yellowColor]];
     [[self getNavigator] gotoPage:con
                    andAnimateType:AnimateR2L];

@@ -19,7 +19,8 @@
 		504AB32D1BB13530001937AF /* MXMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 504AB32C1BB13530001937AF /* MXMessage.m */; };
 		504AB3301BB14567001937AF /* R2LAnimate.m in Sources */ = {isa = PBXBuildFile; fileRef = 504AB32F1BB14567001937AF /* R2LAnimate.m */; };
 		504AB3771BB2B231001937AF /* MXAnimateHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 504AB3761BB2B231001937AF /* MXAnimateHelper.m */; };
-		50F00AD51BBA8BFA003AAA97 /* MXPageMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 50F00AD41BBA8BFA003AAA97 /* MXPageMessage.m */; settings = {ASSET_TAGS = (); }; };
+		50E03DCE1C1EE14D0038BA34 /* NSString+Parser.m in Sources */ = {isa = PBXBuildFile; fileRef = 50E03DCD1C1EE14D0038BA34 /* NSString+Parser.m */; };
+		50F00AD51BBA8BFA003AAA97 /* MXPageMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 50F00AD41BBA8BFA003AAA97 /* MXPageMessage.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,8 @@
 		504AB32F1BB14567001937AF /* R2LAnimate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = R2LAnimate.m; sourceTree = "<group>"; };
 		504AB3751BB2B231001937AF /* MXAnimateHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXAnimateHelper.h; sourceTree = "<group>"; };
 		504AB3761BB2B231001937AF /* MXAnimateHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXAnimateHelper.m; sourceTree = "<group>"; };
+		50E03DCC1C1EE14D0038BA34 /* NSString+Parser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Parser.h"; sourceTree = "<group>"; };
+		50E03DCD1C1EE14D0038BA34 /* NSString+Parser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Parser.m"; sourceTree = "<group>"; };
 		50F00AD31BBA8BFA003AAA97 /* MXPageMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXPageMessage.h; sourceTree = "<group>"; };
 		50F00AD41BBA8BFA003AAA97 /* MXPageMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXPageMessage.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -98,6 +101,7 @@
 		504AB2F21BB0109F001937AF /* MXNavigationController */ = {
 			isa = PBXGroup;
 			children = (
+				50E03DCB1C1EE1320038BA34 /* MXUtil */,
 				504AB32A1BB13522001937AF /* MXBase */,
 				504AB31C1BB1228A001937AF /* MXNavigator */,
 				504AB2F71BB0109F001937AF /* AppDelegate.h */,
@@ -155,6 +159,15 @@
 				50F00AD41BBA8BFA003AAA97 /* MXPageMessage.m */,
 			);
 			path = MXBase;
+			sourceTree = "<group>";
+		};
+		50E03DCB1C1EE1320038BA34 /* MXUtil */ = {
+			isa = PBXGroup;
+			children = (
+				50E03DCC1C1EE14D0038BA34 /* NSString+Parser.h */,
+				50E03DCD1C1EE14D0038BA34 /* NSString+Parser.m */,
+			);
+			path = MXUtil;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -264,6 +277,7 @@
 				504AB3231BB12439001937AF /* BaseAnimate.m in Sources */,
 				504AB3771BB2B231001937AF /* MXAnimateHelper.m in Sources */,
 				504AB32D1BB13530001937AF /* MXMessage.m in Sources */,
+				50E03DCE1C1EE14D0038BA34 /* NSString+Parser.m in Sources */,
 				504AB2F61BB0109F001937AF /* main.m in Sources */,
 				504AB3301BB14567001937AF /* R2LAnimate.m in Sources */,
 				504AB3291BB12FD7001937AF /* UIViewController+mxNavi.m in Sources */,

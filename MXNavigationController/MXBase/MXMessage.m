@@ -7,7 +7,42 @@
 //
 
 #import "MXMessage.h"
+#import "NSString+Parser.h"
 
 @implementation MXMessage
+
+- (instancetype)initWithScheme:(NSString *)scheme
+                          Host:(NSString *)host
+                      Relative:(NSString *)relative
+                       Commond:(NSString *)command
+                          Args:(NSDictionary *)args {
+    self = [super init];
+    if (self) {
+        _scheme = scheme;
+        _host = host;
+        _relative = relative;
+        _command = command;
+        _args = [NSMutableDictionary dictionaryWithDictionary:args];
+    }
+    return self;
+}
+
+- (instancetype)initWithUrl:(NSURL *)url {
+    self = [super init];
+    if (self) {
+        _scheme = url.scheme;
+        _host = url.host;
+        _relative = [url.relativePath substringFromIndex:1];
+        _command = [url fragment];
+        if ([url query])
+            _args = [NSMutableDictionary dictionaryWithDictionary:[[url query] parserQueryToDictory]];
+        else
+            _args = nil;
+        
+        
+    }
+    return self;
+}
+
 
 @end
