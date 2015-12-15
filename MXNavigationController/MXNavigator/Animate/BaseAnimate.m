@@ -56,26 +56,24 @@
                                 forMode:NSRunLoopCommonModes];
         [_displayLink invalidate];
     }else{
+        if (_process < 0) {
+            _process = 0;
+        }else if (_process > 1) {
+            _process = 1;
+        }
+        
         [self updateProcess:_process];
-        if (_direction == AnimeForward) {
-            if (_process >= _endProcess) {
-                _displayOver = YES;
-            }
-        }else {
-            if (_process <= _endProcess) {
-                _displayOver = YES;
-            }
+        
+        if ((interval - _startTime) / _duringTime >= 1) {
+            _displayOver = YES;
         }
     }
 }
 
 - (void)prepare{
-    _foregroundView.alpha = 1;
     if (_direction == AnimeBackward) {
         _process = 1.0;
     }
-//    [_backgroundView setTransform:CGAffineTransformIdentity];
-//    [_foregroundView setTransform:CGAffineTransformIdentity];
 }
 
 - (void)endAnime {

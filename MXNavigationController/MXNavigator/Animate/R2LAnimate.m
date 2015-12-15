@@ -13,12 +13,7 @@
 - (void)prepare{
     [super prepare];
     if (_direction == AnimeForward) {
-        [self.backgroundView setFrame:CGRectMake(0, 0, self.backgroundView.frame.size.width, self.backgroundView.frame.size.height)];
-        [self.foregroundView setFrame:CGRectMake(self.backgroundView.frame.size.width,
-                                                 0,
-                                                 self.backgroundView.frame.size.width,
-                                                 self.backgroundView.frame.size.height)];
-        
+        [self.foregroundView setTransform:CGAffineTransformMakeTranslation(self.backgroundView.frame.size.width, 0)];
         [self.maskView setBackgroundColor:[UIColor blackColor]];
         [self.maskView setAlpha:0];
     }else {
@@ -29,10 +24,9 @@
 
 - (void)updateProcess:(CGFloat)process{
     [super updateProcess:process];
-    NSLog(@"%f",process);
     [self.backgroundView setTransform:CGAffineTransformMakeTranslation(-self.backgroundView.frame.size.width * 0.4 * _process, 0)];
     [self.maskView setAlpha:0.65 * _process];
-    [self.foregroundView setTransform:CGAffineTransformMakeTranslation(-self.backgroundView.frame.size.width * _process, 0)];
+    [self.foregroundView setTransform:CGAffineTransformMakeTranslation(self.backgroundView.frame.size.width * (1 - _process), 0)];
 }
 
 @end

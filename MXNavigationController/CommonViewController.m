@@ -21,14 +21,27 @@
             action:@selector(onTapBtn)
   forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btn];
+    
+    UIButton *btn1 = [UIButton new];
+    [btn1 setFrame:CGRectMake(100, 300, 100, 100)];
+    [btn1 setBackgroundColor:[UIColor blackColor]];
+    [btn1 addTarget:self
+            action:@selector(onTapBtn1)
+  forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:btn1];
+
 
 }
 
-- (void)onTapBtn{
+- (void)onTapBtn1{
     UIViewController *con = [CommonViewController new];
+        [[self getNavigator] gotoPage:con
+                       andAnimateType:AnimateR2L];
+}
+
+
+- (void)onTapBtn{
     [[self getNavigator] popPage];
-//    [[self getNavigator] gotoPage:con
-//                   andAnimateType:AnimateR2L];
 }
 
 

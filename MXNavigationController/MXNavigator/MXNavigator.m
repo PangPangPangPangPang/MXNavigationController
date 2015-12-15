@@ -99,6 +99,7 @@
     }
     [pageController willMoveToParentViewController:self];
 
+    [pageController.view setFrame:_currentPageController.view.frame];
     [self.view addSubview:pageController.view];
     [self addChildViewController:pageController];
     [animate prepare];
