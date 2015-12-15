@@ -23,6 +23,7 @@
 		50E03DD11C1F02A10038BA34 /* UIViewController+generate.m in Sources */ = {isa = PBXBuildFile; fileRef = 50E03DD01C1F02A10038BA34 /* UIViewController+generate.m */; };
 		50E03DD51C1F0B5C0038BA34 /* CommonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50E03DD41C1F0B5C0038BA34 /* CommonViewController.m */; };
 		50E03DD91C206CBD0038BA34 /* Common1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50E03DD81C206CBD0038BA34 /* Common1ViewController.m */; };
+		50E03DDC1C2070E40038BA34 /* UIViewController+gesture.m in Sources */ = {isa = PBXBuildFile; fileRef = 50E03DDB1C2070E40038BA34 /* UIViewController+gesture.m */; };
 		50F00AD51BBA8BFA003AAA97 /* MXPageMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 50F00AD41BBA8BFA003AAA97 /* MXPageMessage.m */; };
 /* End PBXBuildFile section */
 
@@ -69,6 +70,8 @@
 		50E03DD61C2038B90038BA34 /* MXNavigator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MXNavigator.h; sourceTree = "<group>"; };
 		50E03DD71C206CBD0038BA34 /* Common1ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common1ViewController.h; sourceTree = "<group>"; };
 		50E03DD81C206CBD0038BA34 /* Common1ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Common1ViewController.m; sourceTree = "<group>"; };
+		50E03DDA1C2070E40038BA34 /* UIViewController+gesture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+gesture.h"; sourceTree = "<group>"; };
+		50E03DDB1C2070E40038BA34 /* UIViewController+gesture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+gesture.m"; sourceTree = "<group>"; };
 		50F00AD31BBA8BFA003AAA97 /* MXPageMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXPageMessage.h; sourceTree = "<group>"; };
 		50F00AD41BBA8BFA003AAA97 /* MXPageMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXPageMessage.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -150,6 +153,8 @@
 				504AB3281BB12FD7001937AF /* UIViewController+mxNavi.m */,
 				50E03DCF1C1F02A10038BA34 /* UIViewController+generate.h */,
 				50E03DD01C1F02A10038BA34 /* UIViewController+generate.m */,
+				50E03DDA1C2070E40038BA34 /* UIViewController+gesture.h */,
+				50E03DDB1C2070E40038BA34 /* UIViewController+gesture.m */,
 			);
 			path = MXNavigator;
 			sourceTree = "<group>";
@@ -296,6 +301,7 @@
 				504AB3231BB12439001937AF /* BaseAnimate.m in Sources */,
 				50E03DD11C1F02A10038BA34 /* UIViewController+generate.m in Sources */,
 				504AB3771BB2B231001937AF /* MXAnimateHelper.m in Sources */,
+				50E03DDC1C2070E40038BA34 /* UIViewController+gesture.m in Sources */,
 				504AB32D1BB13530001937AF /* MXMessage.m in Sources */,
 				50E03DCE1C1EE14D0038BA34 /* NSString+Parser.m in Sources */,
 				504AB2F61BB0109F001937AF /* main.m in Sources */,
