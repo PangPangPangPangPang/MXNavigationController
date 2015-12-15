@@ -20,6 +20,8 @@
 		504AB3301BB14567001937AF /* R2LAnimate.m in Sources */ = {isa = PBXBuildFile; fileRef = 504AB32F1BB14567001937AF /* R2LAnimate.m */; };
 		504AB3771BB2B231001937AF /* MXAnimateHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 504AB3761BB2B231001937AF /* MXAnimateHelper.m */; };
 		50E03DCE1C1EE14D0038BA34 /* NSString+Parser.m in Sources */ = {isa = PBXBuildFile; fileRef = 50E03DCD1C1EE14D0038BA34 /* NSString+Parser.m */; };
+		50E03DD11C1F02A10038BA34 /* UIViewController+generate.m in Sources */ = {isa = PBXBuildFile; fileRef = 50E03DD01C1F02A10038BA34 /* UIViewController+generate.m */; };
+		50E03DD51C1F0B5C0038BA34 /* CommonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50E03DD41C1F0B5C0038BA34 /* CommonViewController.m */; };
 		50F00AD51BBA8BFA003AAA97 /* MXPageMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 50F00AD41BBA8BFA003AAA97 /* MXPageMessage.m */; };
 /* End PBXBuildFile section */
 
@@ -59,6 +61,10 @@
 		504AB3761BB2B231001937AF /* MXAnimateHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXAnimateHelper.m; sourceTree = "<group>"; };
 		50E03DCC1C1EE14D0038BA34 /* NSString+Parser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Parser.h"; sourceTree = "<group>"; };
 		50E03DCD1C1EE14D0038BA34 /* NSString+Parser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Parser.m"; sourceTree = "<group>"; };
+		50E03DCF1C1F02A10038BA34 /* UIViewController+generate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+generate.h"; sourceTree = "<group>"; };
+		50E03DD01C1F02A10038BA34 /* UIViewController+generate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+generate.m"; sourceTree = "<group>"; };
+		50E03DD31C1F0B5C0038BA34 /* CommonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonViewController.h; sourceTree = "<group>"; };
+		50E03DD41C1F0B5C0038BA34 /* CommonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonViewController.m; sourceTree = "<group>"; };
 		50F00AD31BBA8BFA003AAA97 /* MXPageMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXPageMessage.h; sourceTree = "<group>"; };
 		50F00AD41BBA8BFA003AAA97 /* MXPageMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXPageMessage.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -108,6 +114,8 @@
 				504AB2F81BB0109F001937AF /* AppDelegate.m */,
 				504AB2FA1BB0109F001937AF /* ViewController.h */,
 				504AB2FB1BB0109F001937AF /* ViewController.m */,
+				50E03DD31C1F0B5C0038BA34 /* CommonViewController.h */,
+				50E03DD41C1F0B5C0038BA34 /* CommonViewController.m */,
 				504AB2FD1BB0109F001937AF /* Main.storyboard */,
 				504AB3001BB0109F001937AF /* Images.xcassets */,
 				504AB3021BB0109F001937AF /* LaunchScreen.xib */,
@@ -133,6 +141,8 @@
 				504AB31E1BB12299001937AF /* MXNavigator.m */,
 				504AB3271BB12FD7001937AF /* UIViewController+mxNavi.h */,
 				504AB3281BB12FD7001937AF /* UIViewController+mxNavi.m */,
+				50E03DCF1C1F02A10038BA34 /* UIViewController+generate.h */,
+				50E03DD01C1F02A10038BA34 /* UIViewController+generate.m */,
 			);
 			path = MXNavigator;
 			sourceTree = "<group>";
@@ -270,11 +280,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				50E03DD51C1F0B5C0038BA34 /* CommonViewController.m in Sources */,
 				504AB31F1BB12299001937AF /* MXNavigator.m in Sources */,
 				504AB2FC1BB0109F001937AF /* ViewController.m in Sources */,
 				504AB2F91BB0109F001937AF /* AppDelegate.m in Sources */,
 				50F00AD51BBA8BFA003AAA97 /* MXPageMessage.m in Sources */,
 				504AB3231BB12439001937AF /* BaseAnimate.m in Sources */,
+				50E03DD11C1F02A10038BA34 /* UIViewController+generate.m in Sources */,
 				504AB3771BB2B231001937AF /* MXAnimateHelper.m in Sources */,
 				504AB32D1BB13530001937AF /* MXMessage.m in Sources */,
 				50E03DCE1C1EE14D0038BA34 /* NSString+Parser.m in Sources */,
@@ -433,10 +445,12 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
+				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = MXNavigationController/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MXNavigationController.app/MXNavigationController";
+				USER_HEADER_SEARCH_PATHS = Header/PageNick;
 			};
 			name = Debug;
 		};
@@ -448,10 +462,12 @@
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 				);
+				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = MXNavigationController/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MXNavigationController.app/MXNavigationController";
+				USER_HEADER_SEARCH_PATHS = Header/PageNick;
 			};
 			name = Release;
 		};

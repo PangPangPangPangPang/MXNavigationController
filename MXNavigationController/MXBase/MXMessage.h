@@ -16,11 +16,10 @@
 @property (nonatomic, copy)NSString *command;
 @property (nonatomic, strong)NSMutableDictionary *args;
 
-- (instancetype)initWithScheme:(NSString *)scheme
-                          Host:(NSString *)host
-                      Relative:(NSString *)relative
-                       Commond:(NSString *)command
-                          Args:(NSDictionary *)args;
+- (instancetype)initWithHost:(NSString *)host
+                    relative:(NSString *)relative
+                     command:(NSString *)command
+                        args:(NSDictionary *)args;
 - (instancetype)initWithUrl:(NSURL *)url;
 
 @end

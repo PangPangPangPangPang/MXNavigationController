@@ -19,6 +19,9 @@
 - (void)setAnimateType:(MXAnimateType)type;
 - (MXAnimateType)getAnimateType;
 
+- (void)setNickName:(NSString *)nickName;
+- (NSString *)nickName;
+
 @end
 
 @interface MXNavigator : UIViewController

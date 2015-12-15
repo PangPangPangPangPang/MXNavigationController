@@ -27,5 +27,11 @@
     return [objc_getAssociatedObject(self, @"MXAnimateType") integerValue];
 }
 
+- (void)setNickName:(NSString *)nickName {
+    objc_setAssociatedObject(self, @"nickName", nickName, OBJC_ASSOCIATION_ASSIGN);
 
+}
+- (NSString *)nickName {
+    return objc_getAssociatedObject(self, @"nickName");
+}
 @end

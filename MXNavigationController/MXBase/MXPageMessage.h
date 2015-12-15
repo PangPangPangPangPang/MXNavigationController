@@ -10,10 +10,14 @@
 
 @interface MXPageMessage : MXMessage
 
-@property (nonatomic, readonly, strong)NSString *pageName;
+@property (nonatomic, readonly, strong)NSString *pageNick;
 @property (nonatomic, readonly, assign)NSInteger animateType;
 @property (nonatomic, readonly, assign)NSInteger animateDirection;
 
-- (id)initWithPageName:(NSString *)pageName;
+- (id)initWithPageName:(NSString *)pageName
+              pageNick:(NSString *)pageNick
+               command:(NSString *)command
+                  args:(NSDictionary *)args
+              callBack:(NSURL *)callBack;
 
 @end

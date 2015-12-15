@@ -9,16 +9,16 @@
 #import "MXMessage.h"
 #import "NSString+Parser.h"
 
+#define MX_SCHEME @"MXScheme"
 @implementation MXMessage
 
-- (instancetype)initWithScheme:(NSString *)scheme
-                          Host:(NSString *)host
-                      Relative:(NSString *)relative
-                       Commond:(NSString *)command
-                          Args:(NSDictionary *)args {
+- (instancetype)initWithHost:(NSString *)host
+                    relative:(NSString *)relative
+                     command:(NSString *)command
+                        args:(NSDictionary *)args {
     self = [super init];
     if (self) {
-        _scheme = scheme;
+        _scheme = MX_SCHEME;
         _host = host;
         _relative = relative;
         _command = command;

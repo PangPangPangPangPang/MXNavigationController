@@ -8,6 +8,25 @@
 
 #import "MXPageMessage.h"
 
+#define PAGE_HOST @"mx_page_host"
+
 @implementation MXPageMessage
+
+- (id)initWithPageName:(NSString *)pageName
+              pageNick:(NSString *)pageNick
+               command:(NSString *)command
+                  args:(NSDictionary *)args
+              callBack:(NSURL *)callBack {
+    self = [super initWithHost:PAGE_HOST
+                      relative:pageName
+                       command:command
+                          args:args];
+    if (self) {
+        if (pageNick) {
+            _pageNick = pageNick;
+        }
+    }
+    return self;
+}
 
 @end
