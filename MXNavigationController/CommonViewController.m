@@ -34,14 +34,13 @@
 }
 
 - (void)onTapBtn1{
-    UIViewController *con = [CommonViewController new];
-        [[self getNavigator] gotoPage:con
-                       andAnimateType:AnimateR2L];
+    [[self getNavigator] gotoPageWithPageName:@"CommonViewController" pageNick:nil args:nil animeType:AnimateR2L];
+
 }
 
 
 - (void)onTapBtn{
-    [[self getNavigator] popPage];
+    [self popPage];
 }
 
 

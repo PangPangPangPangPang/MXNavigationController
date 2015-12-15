@@ -28,7 +28,7 @@
 }
 
 - (void)setNickName:(NSString *)nickName {
-    objc_setAssociatedObject(self, @"nickName", nickName, OBJC_ASSOCIATION_ASSIGN);
+    objc_setAssociatedObject(self, @"nickName", nickName, OBJC_ASSOCIATION_COPY);
 
 }
 - (NSString *)nickName {
@@ -36,11 +36,15 @@
 }
 
 - (void)setPageName:(NSString *)pageName {
-    objc_setAssociatedObject(self, @"pageName", pageName, OBJC_ASSOCIATION_ASSIGN);
+    objc_setAssociatedObject(self, @"pageName", pageName, OBJC_ASSOCIATION_COPY);
     
 }
 - (NSString *)pageName {
     return objc_getAssociatedObject(self, @"pageName");
+}
+
+- (void)popPage {
+    [[self getNavigator] popToPrePage];
 }
 
 @end

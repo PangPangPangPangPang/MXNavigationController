@@ -13,4 +13,6 @@
 
 @interface UIViewController (mxNavi)<MXNavigatorProtocol>
 
+- (void)popPage;
+
 @end

@@ -31,11 +31,16 @@
 
 @property (nonatomic, strong)UIViewController<MXNavigatorProtocol>  *rootPageController;
 @property (nonatomic, weak)UIViewController<MXNavigatorProtocol>    *currentPageController;
-@property (nonatomic, strong, readonly)NSMutableArray    *pageArray;
+@property (nonatomic, strong, readonly)NSMutableDictionary  *pageMap;
 
 - (instancetype)initWithRootPageController:(UIViewController<MXNavigatorProtocol> *)root;
-- (void)gotoPage:(UIViewController *)pageController
+- (void)gotoPage:(UIViewController<MXNavigatorProtocol> *)pageController
   andAnimateType:(MXAnimateType)type;
-- (void)popPage;
+- (void)popToPage:(UIViewController<MXNavigatorProtocol> *)pageController;
+- (void)popToPrePage;
+- (void)gotoPageWithPageName:(NSString *)pageName
+                    pageNick:(NSString *)pageNick
+                        args:(NSDictionary *)args
+                   animeType:(MXAnimateType)type;
 
 @end

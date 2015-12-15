@@ -17,7 +17,7 @@
 {
     self = [super init];
     if (self) {
-        _pageArray = [NSMutableArray new];
+        _pageMap = [NSMutableDictionary new];
     }
     return self;
 }
@@ -42,13 +42,14 @@
     }
 }
 
-- (void)setCurrentPageController:(UIViewController *)currentPageController{
+- (void)setCurrentPageController:(UIViewController<MXNavigatorProtocol> *)currentPageController {
     _currentPageController = currentPageController;
     [_currentPageController setNavigator:self];
-    [_pageArray addObject:currentPageController];
+    NSAssert([currentPageController nickName], @"need nickName");
+    [_pageMap setValue:currentPageController forKey:[currentPageController nickName]];
 }
 
-- (void)popPage{
+- (void)popToPrePage {
     NSInteger index = [self.childViewControllers indexOfObject:_currentPageController];
     UIViewController *target = self.childViewControllers[index - 1];
     BaseAnimate *animate = [MXAnimateHelper animateWityType:[_currentPageController getAnimateType]
@@ -61,8 +62,31 @@
         [animate.backgroundView addSubview:maskView];
         animate.maskView = maskView;
     }
+    
+    [target willMoveToParentViewController:self];
+    [animate prepare];
+    [animate play];
+    [_currentPageController removeFromParentViewController];
+    [target didMoveToParentViewController:self];
+    [self setCurrentPageController:target];
 
-    [target willMoveToParentViewController:nil];
+}
+
+- (void)popToPage:(UIViewController<MXNavigatorProtocol> *)pageController {
+    NSInteger index = [self.childViewControllers indexOfObject:pageController];
+    UIViewController *target = self.childViewControllers[index - 1];
+    BaseAnimate *animate = [MXAnimateHelper animateWityType:[_currentPageController getAnimateType]
+                                               andDirection:AnimeBackward];
+    animate.backgroundView = target.view;
+    animate.foregroundView = pageController.view;
+    {
+        UIView *maskView = [UIView new];
+        [maskView setFrame:_rootPageController.view.bounds];
+        [animate.backgroundView addSubview:maskView];
+        animate.maskView = maskView;
+    }
+
+    [target willMoveToParentViewController:self];
     [animate prepare];
     [animate play];
     [_currentPageController removeFromParentViewController];

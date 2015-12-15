@@ -65,6 +65,7 @@
 		50E03DD01C1F02A10038BA34 /* UIViewController+generate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+generate.m"; sourceTree = "<group>"; };
 		50E03DD31C1F0B5C0038BA34 /* CommonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonViewController.h; sourceTree = "<group>"; };
 		50E03DD41C1F0B5C0038BA34 /* CommonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonViewController.m; sourceTree = "<group>"; };
+		50E03DD61C2038B90038BA34 /* MXNavigator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MXNavigator.h; sourceTree = "<group>"; };
 		50F00AD31BBA8BFA003AAA97 /* MXPageMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXPageMessage.h; sourceTree = "<group>"; };
 		50F00AD41BBA8BFA003AAA97 /* MXPageMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXPageMessage.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -120,6 +121,7 @@
 				504AB3001BB0109F001937AF /* Images.xcassets */,
 				504AB3021BB0109F001937AF /* LaunchScreen.xib */,
 				504AB2F31BB0109F001937AF /* Supporting Files */,
+				50E03DD61C2038B90038BA34 /* MXNavigator.h */,
 			);
 			path = MXNavigationController;
 			sourceTree = "<group>";

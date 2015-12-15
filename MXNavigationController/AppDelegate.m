@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 #import "ViewController.h"
-
+#import "MXNavigator.h"
 @interface AppDelegate ()
 
 @end
@@ -19,9 +19,10 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     _navigator = [MXNavigator new];
-    ViewController *controller = [ViewController new];
-    [controller.view setBackgroundColor:[UIColor greenColor]];
-    [_navigator setRootPageController:controller];
+    MXPageMessage *message = [[MXPageMessage alloc] initWithPageName:@"ViewController" pageNick:nil command:@"init" args:nil callBack:nil];
+    UIViewController *vc = [UIViewController generateWithPageMessage:message];
+    [vc.view setBackgroundColor:[UIColor greenColor]];
+    [_navigator setRootPageController:vc];
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     [self.window setRootViewController:_navigator];
     [self.window makeKeyAndVisible];
