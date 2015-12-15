@@ -113,6 +113,12 @@
 }
 
 - (void)gotoPage:(UIViewController *)pageController andAnimateType:(MXAnimateType)type{
+    
+    if (pageController == _currentPageController) {
+        return;
+    }
+    [self popTargetPage:pageController];
+    
     BaseAnimate *animate = [MXAnimateHelper animateWityType:type
                                                andDirection:AnimeForward];
     [pageController setAnimateType:type];
@@ -137,6 +143,13 @@
 
 #pragma mark -
 #pragma mark Internal Method
+
+- (void)popTargetPage:(UIViewController<MXNavigatorProtocol> *)target {
+    if ([_pageMap valueForKey:target.nickName]) {
+        [target removeFromParentViewController];
+        [target.view removeFromSuperview];
+    }
+}
 
 - (void)removeMiddlePageController:(UIViewController *)target {
     NSInteger startIndex = [self.childViewControllers indexOfObject:target];

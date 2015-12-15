@@ -1,19 +1,19 @@
 //
-//  CommonViewController.m
+//  Common1ViewController.m
 //  MXNavigationController
 //
-//  Created by Max on 15/12/14.
+//  Created by Max on 15/12/15.
 //  Copyright © 2015年 Max. All rights reserved.
 //
 
-#import "CommonViewController.h"
-#import "UIViewController+mxNavi.h"
+#import "Common1ViewController.h"
+#import "MXNavigator.h"
 
-@implementation CommonViewController
+@implementation Common1ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.view setBackgroundColor:[UIColor purpleColor]];
+    [self.view setBackgroundColor:[UIColor grayColor]];
     UIButton *btn = [UIButton new];
     [btn setFrame:CGRectMake(100, 100, 100, 100)];
     [btn setBackgroundColor:[UIColor blackColor]];
@@ -26,24 +26,23 @@
     [btn1 setFrame:CGRectMake(100, 300, 100, 100)];
     [btn1 setBackgroundColor:[UIColor blackColor]];
     [btn1 addTarget:self
-            action:@selector(onTapBtn1)
-  forControlEvents:UIControlEventTouchUpInside];
+             action:@selector(onTapBtn1)
+   forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btn1];
-
-
+    
+    
 }
 
 - (void)onTapBtn1{
-    [[self getNavigator] gotoPageWithPageName:@"Common1ViewController" pageNick:@"111" args:nil animeType:AnimateR2L];
-
+    [[self getNavigator] gotoPageWithPageName:@"CommonViewController" pageNick:@"222" args:nil animeType:AnimateR2L];
+    
 }
 
 
 - (void)onTapBtn{
-    NSURL *url = [NSURL URLWithString:@"youlin://host/hahaha?nickName=hahaha"];
-    [[self getNavigator] poptoPageWithUrl:url];
-//    [self popPage];
+//    NSURL *url = [NSURL URLWithString:@"youlin://host/hahaha?nickName=hahaha"];
+//    [[self getNavigator] poptoPageWithUrl:url];
+        [self popPage];
 }
-
 
 @end
