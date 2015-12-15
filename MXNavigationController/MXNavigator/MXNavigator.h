@@ -34,13 +34,16 @@
 @property (nonatomic, strong, readonly)NSMutableDictionary  *pageMap;
 
 - (instancetype)initWithRootPageController:(UIViewController<MXNavigatorProtocol> *)root;
-- (void)gotoPage:(UIViewController<MXNavigatorProtocol> *)pageController
-  andAnimateType:(MXAnimateType)type;
-- (void)popToPage:(UIViewController<MXNavigatorProtocol> *)pageController;
-- (void)popToPrePage;
+
 - (void)gotoPageWithPageName:(NSString *)pageName
                     pageNick:(NSString *)pageNick
                         args:(NSDictionary *)args
                    animeType:(MXAnimateType)type;
+- (void)gotoPage:(UIViewController<MXNavigatorProtocol> *)pageController
+  andAnimateType:(MXAnimateType)type;
+
+- (void)poptoPageWithUrl:(NSURL *)url;
+- (void)popToPage:(UIViewController<MXNavigatorProtocol> *)pageController;
+- (void)popToPrePage;
 
 @end

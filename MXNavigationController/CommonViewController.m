@@ -40,7 +40,9 @@
 
 
 - (void)onTapBtn{
-    [self popPage];
+    NSURL *url = [NSURL URLWithString:@"youlin://host/hahaha?nickName=hahaha"];
+    [[self getNavigator] poptoPageWithUrl:url];
+//    [self popPage];
 }
 
 
