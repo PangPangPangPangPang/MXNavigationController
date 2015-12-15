@@ -34,4 +34,13 @@
 - (NSString *)nickName {
     return objc_getAssociatedObject(self, @"nickName");
 }
+
+- (void)setPageName:(NSString *)pageName {
+    objc_setAssociatedObject(self, @"pageName", pageName, OBJC_ASSOCIATION_ASSIGN);
+    
+}
+- (NSString *)pageName {
+    return objc_getAssociatedObject(self, @"pageName");
+}
+
 @end

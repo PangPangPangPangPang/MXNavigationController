@@ -8,6 +8,8 @@
 
 #import "MXNavigator.h"
 #import "UIViewController+mxNavi.h"
+#import "UIViewController+generate.h"
+#import "MXPageMessage.h"
 
 @implementation MXNavigator
 
@@ -16,6 +18,14 @@
     self = [super init];
     if (self) {
         _pageArray = [NSMutableArray new];
+    }
+    return self;
+}
+
+- (instancetype)initWithRootPageController:(UIViewController<MXNavigatorProtocol> *)root {
+    self = [self init];
+    if (self) {
+        self.rootPageController = root;
     }
     return self;
 }
@@ -39,33 +49,61 @@
 }
 
 - (void)popPage{
-    UIViewController *target = [_pageArray objectAtIndex:[_pageArray count] - 2];
+    NSInteger index = [self.childViewControllers indexOfObject:_currentPageController];
+    UIViewController *target = self.childViewControllers[index - 1];
     BaseAnimate *animate = [MXAnimateHelper animateWityType:[_currentPageController getAnimateType]
                                                andDirection:AnimeBackward];
     animate.backgroundView = target.view;
     animate.foregroundView = _currentPageController.view;
-    [_currentPageController willMoveToParentViewController:nil];
+    {
+        UIView *maskView = [UIView new];
+        [maskView setFrame:_rootPageController.view.bounds];
+        [animate.backgroundView addSubview:maskView];
+        animate.maskView = maskView;
+    }
+
+    [target willMoveToParentViewController:nil];
+    [animate prepare];
+    [animate play];
+    [_currentPageController removeFromParentViewController];
+    [target didMoveToParentViewController:self];
+    [self setCurrentPageController:target];
     
+}
+
+- (void)gotoPageWithPageName:(NSString *)pageName
+                    pageNick:(NSString *)pageNick
+                        args:(NSDictionary *)args
+                   animeType:(MXAnimateType)type {
+    MXPageMessage *message = [[MXPageMessage alloc] initWithPageName:pageName
+                                                            pageNick:pageNick
+                                                             command:@"init"
+                                                                args:args
+                                                            callBack:nil];
+    UIViewController *vc = [UIViewController generateWithPageMessage:message];
+    [self gotoPage:vc andAnimateType:type];
     
 }
 
 - (void)gotoPage:(UIViewController *)pageController andAnimateType:(MXAnimateType)type{
     BaseAnimate *animate = [MXAnimateHelper animateWityType:type
                                                andDirection:AnimeForward];
+    [pageController setAnimateType:type];
     animate.backgroundView = _currentPageController.view;
     animate.foregroundView = pageController.view;
     {
         UIView *maskView = [UIView new];
         [maskView setFrame:_rootPageController.view.bounds];
-        [_currentPageController.view addSubview:maskView];
+        [animate.backgroundView addSubview:maskView];
         animate.maskView = maskView;
     }
     [pageController willMoveToParentViewController:self];
+
     [self.view addSubview:pageController.view];
     [self addChildViewController:pageController];
-    [pageController didMoveToParentViewController:self];
     [animate prepare];
     [animate play];
+    [pageController didMoveToParentViewController:self];
     [self setCurrentPageController:pageController];
 }
 

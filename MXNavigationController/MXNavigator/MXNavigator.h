@@ -22,14 +22,18 @@
 - (void)setNickName:(NSString *)nickName;
 - (NSString *)nickName;
 
+- (void)setPageName:(NSString *)pageName;
+- (NSString *)pageName;
+
 @end
 
 @interface MXNavigator : UIViewController
 
-@property (nonatomic, strong)UIViewController  *rootPageController;
-@property (nonatomic, weak)UIViewController    *currentPageController;
+@property (nonatomic, strong)UIViewController<MXNavigatorProtocol>  *rootPageController;
+@property (nonatomic, weak)UIViewController<MXNavigatorProtocol>    *currentPageController;
 @property (nonatomic, strong, readonly)NSMutableArray    *pageArray;
 
+- (instancetype)initWithRootPageController:(UIViewController<MXNavigatorProtocol> *)root;
 - (void)gotoPage:(UIViewController *)pageController
   andAnimateType:(MXAnimateType)type;
 - (void)popPage;

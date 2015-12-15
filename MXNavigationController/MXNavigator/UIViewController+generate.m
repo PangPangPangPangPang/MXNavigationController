@@ -11,10 +11,10 @@
 
 @implementation UIViewController (generate)
 
-- (UIViewController<MXNavigatorProtocol> *)generateWithPageMessage:(MXPageMessage *)message {
++ (UIViewController<MXNavigatorProtocol> *)generateWithPageMessage:(MXPageMessage *)message {
     UIViewController *vc = [UIViewController new];
     [vc setNickName:message.pageNick];
-    
+    [vc setPageName:message.relative];
     return nil;
 }
 

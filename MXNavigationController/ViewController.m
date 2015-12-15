@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "UIViewController+mxNavi.h"
 #import "MXMessage.h"
+#import "CommonViewController.h"
 
 @interface ViewController ()
 
@@ -30,9 +31,12 @@
 
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    NSLog(@"%@",[self class]);
+}
+
 - (void)onTapBtn{
-    UIViewController *con = [ViewController new];
-    [con.view setBackgroundColor:[UIColor yellowColor]];
+    UIViewController *con = [CommonViewController new];
     [[self getNavigator] gotoPage:con
                    andAnimateType:AnimateR2L];
 }

@@ -51,19 +51,49 @@
     if (_displayOver) {
         [[UIApplication sharedApplication] endIgnoringInteractionEvents];
         [self updateProcess:_endProcess];
+        [self endAnime];
         [_displayLink removeFromRunLoop:[NSRunLoop currentRunLoop]
                                 forMode:NSRunLoopCommonModes];
         [_displayLink invalidate];
     }else{
         [self updateProcess:_process];
-        if (_process >= _endProcess) {
-            _displayOver = YES;
+        if (_direction == AnimeForward) {
+            if (_process >= _endProcess) {
+                _displayOver = YES;
+            }
+        }else {
+            if (_process <= _endProcess) {
+                _displayOver = YES;
+            }
         }
     }
 }
 
 - (void)prepare{
     _foregroundView.alpha = 1;
+    if (_direction == AnimeBackward) {
+        _process = 1.0;
+    }
+//    [_backgroundView setTransform:CGAffineTransformIdentity];
+//    [_foregroundView setTransform:CGAffineTransformIdentity];
+}
+
+- (void)endAnime {
+    [self.maskView removeFromSuperview];
+}
+
+- (void)setDirection:(MXAnimeDirection)direction {
+    _direction = direction;
+    switch (_direction) {
+        case AnimeForward:
+            _startProcess = 0;
+            break;
+        case AnimeBackward:
+            _startProcess = 1;
+            break;
+        default:
+            break;
+    }
 }
 
 - (void)updateProcess:(CGFloat)process{

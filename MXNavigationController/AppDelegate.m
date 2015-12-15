@@ -20,7 +20,7 @@
     // Override point for customization after application launch.
     _navigator = [MXNavigator new];
     ViewController *controller = [ViewController new];
-    [controller.view setBackgroundColor:[UIColor whiteColor]];
+    [controller.view setBackgroundColor:[UIColor greenColor]];
     [_navigator setRootPageController:controller];
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     [self.window setRootViewController:_navigator];

@@ -22,8 +22,27 @@
                        command:command
                           args:args];
     if (self) {
+        _callBack = callBack;
+        
         if (pageNick) {
             _pageNick = pageNick;
+        }else {
+            _pageNick = [NSString stringWithFormat:@"%@_%f",pageName,[NSDate date].timeIntervalSince1970];
+        }
+    }
+    return self;
+}
+
+- (instancetype)initWithUrl:(NSURL *)url {
+    self = [super initWithUrl:url];
+    if (self) {
+        if ([_args valueForKey:@"nickName"]) {
+            _pageNick = [_args valueForKey:@"nickName"];
+        }else {
+            _pageNick = [NSString stringWithFormat:@"%@_%f",_relative,[NSDate date].timeIntervalSince1970];
+        }
+        if ([_args valueForKey:@"callBack"]) {
+            _callBack = [_args valueForKey:@"callBack"];
         }
     }
     return self;

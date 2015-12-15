@@ -13,6 +13,7 @@
 @property (nonatomic, readonly, strong)NSString *pageNick;
 @property (nonatomic, readonly, assign)NSInteger animateType;
 @property (nonatomic, readonly, assign)NSInteger animateDirection;
+@property (nonatomic, readonly, strong)NSURL    *callBack;
 
 - (id)initWithPageName:(NSString *)pageName
               pageNick:(NSString *)pageNick
