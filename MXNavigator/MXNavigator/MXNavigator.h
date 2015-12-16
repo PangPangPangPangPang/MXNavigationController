@@ -17,6 +17,7 @@ static  NSString *const EdgePanGestureEnded = @"EdgePanGestureEnded";
 @class MXNavigator;
 @protocol MXNavigatorProtocol <NSObject>
 
+@required
 - (void)setNavigator:(MXNavigator *)navigator;
 - (MXNavigator *)getNavigator;
 
@@ -28,6 +29,9 @@ static  NSString *const EdgePanGestureEnded = @"EdgePanGestureEnded";
 
 - (void)setPageName:(NSString *)pageName;
 - (NSString *)pageName;
+
+@optional
+- (BOOL)_MXNavigatorCanPopWithGesture;
 
 @end
 

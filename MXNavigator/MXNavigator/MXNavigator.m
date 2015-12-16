@@ -234,8 +234,11 @@
 #pragma mark Notification
 
 - (void)edgePanGesturePrepareNoti:(NSNotification *)noti {
-    UIViewController *target = [self prePageController:_currentPageController];
+    UIViewController<MXNavigatorProtocol> *target = [self prePageController:_currentPageController];
     if (!target) {
+        return;
+    }
+    if ([target respondsToSelector:@selector(_MXNavigatorCanPopWithGesture)] && ![target _MXNavigatorCanPopWithGesture]) {
         return;
     }
     _panAnimate = [MXAnimateHelper animateWityType:AnimateR2L
@@ -292,6 +295,7 @@
             [_removedViewController.view removeFromSuperview];
         }
     }
+    _panAnimate = nil;
 }
 
 @end
