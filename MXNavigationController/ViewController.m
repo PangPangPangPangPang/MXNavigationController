@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 #import "UIViewController+mxNavi.h"
-#import "MXMessage.h"
+#import "../MXNavigator/MXNavigator.h"
 #import "CommonViewController.h"
 
 @interface ViewController ()

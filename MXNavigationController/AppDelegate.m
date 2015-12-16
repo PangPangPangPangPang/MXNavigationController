@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 #import "ViewController.h"
-#import "MXNavigator.h"
+#import "../MXNavigator/MXNavigator.h"
 @interface AppDelegate ()
 
 @end

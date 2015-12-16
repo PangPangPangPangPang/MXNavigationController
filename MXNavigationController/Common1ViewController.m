@@ -7,7 +7,7 @@
 //
 
 #import "Common1ViewController.h"
-#import "MXNavigator.h"
+#import "../MXNavigator/MXNavigator.h"
 
 @implementation Common1ViewController
 

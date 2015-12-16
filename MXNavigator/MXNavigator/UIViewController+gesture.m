@@ -40,11 +40,12 @@ void swizzleMethod(Class class, SEL originalSelector, SEL swizzledSelector)
 }
 
 - (void)swizzling_viewDidLoad {
+    [self swizzling_viewDidLoad];
     UIScreenEdgePanGestureRecognizer *gesture = [[UIScreenEdgePanGestureRecognizer alloc] initWithTarget:self
                                                                                                   action:@selector(screenEdgePanGesture:)];
     [gesture setEdges:UIRectEdgeLeft];
     [self.view addGestureRecognizer:gesture];
-    [self swizzling_viewDidLoad];
+
 
 }
 
