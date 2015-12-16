@@ -28,4 +28,5 @@ MXNavigator是一个自定义container view controller。
 
 ###关于我
 [微薄](http://weibo.com/mmmmmmaxx)
+[Blog](http://mmmmmmax.wang)
 
