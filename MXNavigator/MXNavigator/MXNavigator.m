@@ -13,6 +13,7 @@
 
 @implementation MXNavigator {
     BaseAnimate *_panAnimate;
+    UIViewController *_removedViewController;
 }
 
 #pragma mark -
@@ -35,7 +36,7 @@
                                                  selector:@selector(edgePanGestureEndedNoti:)
                                                      name:EdgePanGestureEnded
                                                    object:nil];
-        
+        [self.view setFrame:[self screenFrame]];
 
     }
     return self;
@@ -62,7 +63,7 @@
     if (rootPageController != _rootPageController) {
         _rootPageController = rootPageController;
         [_rootPageController willMoveToParentViewController:self];
-        [_rootPageController.view setFrame:[self screenFrame]];
+        [_rootPageController.view setFrame:self.view.frame];
         [self addChildViewController:rootPageController];
         [self.view addSubview:_rootPageController.view];
         [_rootPageController didMoveToParentViewController:self];
@@ -97,6 +98,7 @@
 
     BaseAnimate *animate = [MXAnimateHelper animateWityType:[_currentPageController getAnimateType]
                                                andDirection:AnimeBackward];
+    _removedViewController = _currentPageController;
     animate.backgroundView = pageController.view;
     animate.foregroundView = _currentPageController.view;
     {
@@ -136,7 +138,11 @@
     if (pageController == _currentPageController) {
         return;
     }
-    [self popTargetPage:pageController];
+    UIViewController<MXNavigatorProtocol>* reuseViewController = [self popTargetPage:pageController];
+    
+    if (reuseViewController) {
+        pageController = reuseViewController;
+    }
     
     BaseAnimate *animate = [MXAnimateHelper animateWityType:type
                                                andDirection:AnimeForward];
@@ -145,13 +151,13 @@
     animate.foregroundView = pageController.view;
     {
         UIView *maskView = [UIView new];
-        [maskView setFrame:_rootPageController.view.bounds];
+        [maskView setFrame:animate.backgroundView.bounds];
         [animate.backgroundView addSubview:maskView];
         animate.maskView = maskView;
     }
     [pageController willMoveToParentViewController:self];
 
-    [pageController.view setFrame:_currentPageController.view.frame];
+    [pageController.view setFrame:self.view.frame];
     [self.view addSubview:pageController.view];
     [self addChildViewController:pageController];
     [animate prepare];
@@ -170,11 +176,14 @@
     [_pageMap setValue:currentPageController forKey:[currentPageController nickName]];
 }
 
-- (void)popTargetPage:(UIViewController<MXNavigatorProtocol> *)target {
-    if ([_pageMap valueForKey:target.nickName]) {
-        [target removeFromParentViewController];
-        [target.view removeFromSuperview];
+- (UIViewController<MXNavigatorProtocol> *)popTargetPage:(UIViewController<MXNavigatorProtocol> *)target {
+    UIViewController<MXNavigatorProtocol> *reusePageController = [_pageMap valueForKey:target.nickName];
+    if (reusePageController) {
+        reusePageController.view.transform = CGAffineTransformIdentity;
+        [reusePageController removeFromParentViewController];
+        [reusePageController.view removeFromSuperview];
     }
+    return reusePageController;
 }
 
 - (void)removeMiddlePageController:(UIViewController *)target {
@@ -234,11 +243,12 @@
     [_panAnimate setDelegate:self];
     [_panAnimate setIsPanGesture:YES];
 
-    _panAnimate.foregroundView = _currentPageController.view;
+    _removedViewController = _currentPageController;
+    _panAnimate.foregroundView = _removedViewController.view;
     _panAnimate.backgroundView = target.view;
     {
         UIView *maskView = [UIView new];
-        [maskView setFrame:_rootPageController.view.bounds];
+        [maskView setFrame:_panAnimate.backgroundView.bounds];
         [_panAnimate.backgroundView addSubview:maskView];
         _panAnimate.maskView = maskView;
     }
@@ -265,16 +275,21 @@
 #pragma mark Anime Delegate
 
 - (void)baseAnimateDidFinishAnime:(BaseAnimate *)anime {
-    if (anime.isPanEnded) {
+    if (anime.isPanGesture) {
         if (anime.panEndProcess > 0.5) {
             [_currentPageController didMoveToParentViewController:self];
         }else {
-            UIViewController *target = [self prePageController:_currentPageController];
-            [_currentPageController.view removeFromSuperview];
-            [_currentPageController removeFromParentViewController];
-            [_currentPageController didMoveToParentViewController:nil];
+            UIViewController *target = [self prePageController:_removedViewController];
+            [_removedViewController.view removeFromSuperview];
+            [_removedViewController removeFromParentViewController];
+            [_removedViewController didMoveToParentViewController:nil];
             [self setCurrentPageController:target];
-
+            [_pageMap removeObjectForKey:_removedViewController.nickName];
+        }
+    }else {
+        if (anime.direction == AnimeBackward) {
+            [_pageMap removeObjectForKey:_removedViewController.nickName];
+            [_removedViewController.view removeFromSuperview];
         }
     }
 }
