@@ -181,10 +181,10 @@
 		50E03DE41C2104860038BA34 /* Animate */ = {
 			isa = PBXGroup;
 			children = (
-				50E03DE51C2104860038BA34 /* BaseAnimate.h */,
-				50E03DE61C2104860038BA34 /* BaseAnimate.m */,
 				50E03DE71C2104860038BA34 /* MXAnimateHelper.h */,
 				50E03DE81C2104860038BA34 /* MXAnimateHelper.m */,
+				50E03DE51C2104860038BA34 /* BaseAnimate.h */,
+				50E03DE61C2104860038BA34 /* BaseAnimate.m */,
 				50E03DE91C2104860038BA34 /* R2LAnimate.h */,
 				50E03DEA1C2104860038BA34 /* R2LAnimate.m */,
 			);
