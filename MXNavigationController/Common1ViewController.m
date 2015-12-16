@@ -38,6 +38,10 @@
     
 }
 
+- (BOOL)_MXNavigatorCanPopWithGesture {
+    return NO;
+}
+
 
 - (void)onTapBtn{
 //    NSURL *url = [NSURL URLWithString:@"youlin://host/hahaha?nickName=hahaha"];

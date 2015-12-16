@@ -238,7 +238,8 @@
     if (!target) {
         return;
     }
-    if ([target respondsToSelector:@selector(_MXNavigatorCanPopWithGesture)] && ![target _MXNavigatorCanPopWithGesture]) {
+    if ([_currentPageController respondsToSelector:@selector(_MXNavigatorCanPopWithGesture)]
+        && ![_currentPageController _MXNavigatorCanPopWithGesture]) {
         return;
     }
     _panAnimate = [MXAnimateHelper animateWityType:AnimateR2L
