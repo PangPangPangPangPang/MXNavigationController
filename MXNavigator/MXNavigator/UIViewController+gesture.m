@@ -8,6 +8,7 @@
 
 #import "UIViewController+gesture.h"
 #import "objc/runtime.h"
+#import "MXNavigator.h"
 
 @implementation UIViewController (gesture)
 
@@ -50,6 +51,31 @@ void swizzleMethod(Class class, SEL originalSelector, SEL swizzledSelector)
 }
 
 - (void)screenEdgePanGesture:(UIScreenEdgePanGestureRecognizer *)gesture {
+    switch (gesture.state) {
+        case UIGestureRecognizerStateBegan:
+        {
+            [[NSNotificationCenter defaultCenter] postNotificationName:EdgePanGesturePrepare
+                                                                object:gesture];
+        }
+            break;
+        case  UIGestureRecognizerStateChanged:
+        {
+            [[NSNotificationCenter defaultCenter] postNotificationName:EdgePanGestureChanged
+                                                                object:gesture];
+
+        }
+            break;
+        case  UIGestureRecognizerStateEnded:
+        {
+            [[NSNotificationCenter defaultCenter] postNotificationName:EdgePanGestureEnded
+                                                                object:gesture];
+        }
+
+            break;
+            
+        default:
+            break;
+    }
 }
 
 @end

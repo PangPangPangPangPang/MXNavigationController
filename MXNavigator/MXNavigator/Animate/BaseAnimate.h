@@ -9,10 +9,17 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+
 typedef NS_ENUM(NSInteger, MXAnimeDirection) {
     AnimeForward  = 0,
     AnimeBackward = 1
 };
+@class BaseAnimate;
+@protocol BaseAnimateDelegate <NSObject>
+
+- (void)baseAnimateDidFinishAnime:(BaseAnimate *)anime;
+
+@end
 
 @interface BaseAnimate : NSObject{
     CADisplayLink *_displayLink;
@@ -27,13 +34,17 @@ typedef NS_ENUM(NSInteger, MXAnimeDirection) {
     CGFloat        _startProcess;
     CGFloat        _endProcess;
     MXAnimeDirection _direction;
+    id<BaseAnimateDelegate> delegate;
 }
-
 
 @property (nonatomic, weak)UIView *backgroundView;
 @property (nonatomic, weak)UIView *foregroundView;
 @property (nonatomic, weak)UIView *maskView;
 @property (nonatomic, assign)MXAnimeDirection direction;
+@property (nonatomic, assign)BOOL isPanGesture;
+@property (nonatomic, assign)BOOL isPanEnded;
+@property (nonatomic, assign)CGFloat panEndProcess;
+@property (nonatomic, weak)id<BaseAnimateDelegate> delegate;
 
 - (void)prepare;
 - (void)play;

@@ -10,6 +10,10 @@
 #import "BaseAnimate.h"
 #import "Animate/MXAnimateHelper.h"
 
+static  NSString *const EdgePanGesturePrepare = @"EdgePanGesturePrepare";
+static  NSString *const EdgePanGestureChanged = @"EdgePanGestureChanged";
+static  NSString *const EdgePanGestureEnded = @"EdgePanGestureEnded";
+
 @class MXNavigator;
 @protocol MXNavigatorProtocol <NSObject>
 
@@ -27,7 +31,7 @@
 
 @end
 
-@interface MXNavigator : UIViewController
+@interface MXNavigator : UIViewController<BaseAnimateDelegate>
 
 @property (nonatomic, strong)UIViewController<MXNavigatorProtocol>  *rootPageController;
 @property (nonatomic, weak)UIViewController<MXNavigatorProtocol>    *currentPageController;

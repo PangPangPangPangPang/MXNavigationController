@@ -11,13 +11,32 @@
 #import "UIViewController+generate.h"
 #import "MXPageMessage.h"
 
-@implementation MXNavigator
+@implementation MXNavigator {
+    BaseAnimate *_panAnimate;
+}
+
+#pragma mark -
+#pragma mark LifeCycle
 
 - (instancetype)init
 {
     self = [super init];
     if (self) {
         _pageMap = [NSMutableDictionary new];
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(edgePanGesturePrepareNoti:)
+                                                     name:EdgePanGesturePrepare
+                                                   object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(edgePanGestureChangedNoti:)
+                                                     name:EdgePanGestureChanged
+                                                   object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(edgePanGestureEndedNoti:)
+                                                     name:EdgePanGestureEnded
+                                                   object:nil];
+        
+
     }
     return self;
 }
@@ -26,9 +45,18 @@
     self = [self init];
     if (self) {
         self.rootPageController = root;
+
     }
     return self;
 }
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+#pragma mark -
+#pragma mark Public Method
+
 
 - (void)setRootPageController:(UIViewController *)rootPageController{
     if (rootPageController != _rootPageController) {
@@ -42,21 +70,12 @@
     }
 }
 
-- (void)setCurrentPageController:(UIViewController<MXNavigatorProtocol> *)currentPageController {
-    _currentPageController = currentPageController;
-    [_currentPageController setNavigator:self];
-    NSAssert([currentPageController nickName], @"need nickName");
-    [_pageMap setValue:currentPageController forKey:[currentPageController nickName]];
-}
-
 - (void)popToPrePage {
-    NSInteger index = [self.childViewControllers indexOfObject:_currentPageController];
-    if (0 == index) {
+    UIViewController *target = [self prePageController:_currentPageController];
+    if (!target) {
         return;
     }
-    UIViewController *target = self.childViewControllers[index - 1];
     [self popToPage:target];
-
 }
 
 - (void)poptoPageWithUrl:(NSURL *)url {
@@ -144,6 +163,13 @@
 #pragma mark -
 #pragma mark Internal Method
 
+- (void)setCurrentPageController:(UIViewController<MXNavigatorProtocol> *)currentPageController {
+    _currentPageController = currentPageController;
+    [_currentPageController setNavigator:self];
+    NSAssert([currentPageController nickName], @"need nickName");
+    [_pageMap setValue:currentPageController forKey:[currentPageController nickName]];
+}
+
 - (void)popTargetPage:(UIViewController<MXNavigatorProtocol> *)target {
     if ([_pageMap valueForKey:target.nickName]) {
         [target removeFromParentViewController];
@@ -182,7 +208,75 @@
     return index;
 }
 
+- (UIViewController<MXNavigatorProtocol> *)prePageController:(UIViewController<MXNavigatorProtocol> *)pageController {
+    NSInteger index = [self.childViewControllers indexOfObject:pageController];
+    if (index == 0) {
+        return nil;
+    }
+    UIViewController<MXNavigatorProtocol> * result = self.childViewControllers[index - 1];
+    return result;
+}
+
 - (CGRect)screenFrame{
     return [UIScreen mainScreen].bounds;
 }
+
+#pragma mark -
+#pragma mark Notification
+
+- (void)edgePanGesturePrepareNoti:(NSNotification *)noti {
+    UIViewController *target = [self prePageController:_currentPageController];
+    if (!target) {
+        return;
+    }
+    _panAnimate = [MXAnimateHelper animateWityType:AnimateR2L
+                                      andDirection:AnimeBackward];
+    [_panAnimate setDelegate:self];
+    [_panAnimate setIsPanGesture:YES];
+
+    _panAnimate.foregroundView = _currentPageController.view;
+    _panAnimate.backgroundView = target.view;
+    {
+        UIView *maskView = [UIView new];
+        [maskView setFrame:_rootPageController.view.bounds];
+        [_panAnimate.backgroundView addSubview:maskView];
+        _panAnimate.maskView = maskView;
+    }
+    [_currentPageController willMoveToParentViewController:nil];
+    [_panAnimate prepare];
+    [_panAnimate play];
+
+}
+
+- (void)edgePanGestureChangedNoti:(NSNotification *)noti {
+    UIScreenEdgePanGestureRecognizer *gesture = noti.object;
+    if (_panAnimate) {
+        CGFloat process = 1 - [gesture translationInView:_currentPageController.view].x / _currentPageController.view.frame.size.width;
+        [_panAnimate updateProcess:process];
+    }
+}
+
+- (void)edgePanGestureEndedNoti:(NSNotification *)noti {
+    [_panAnimate setIsPanEnded:YES];
+    
+}
+
+#pragma mark -
+#pragma mark Anime Delegate
+
+- (void)baseAnimateDidFinishAnime:(BaseAnimate *)anime {
+    if (anime.isPanEnded) {
+        if (anime.panEndProcess > 0.5) {
+            [_currentPageController didMoveToParentViewController:self];
+        }else {
+            UIViewController *target = [self prePageController:_currentPageController];
+            [_currentPageController.view removeFromSuperview];
+            [_currentPageController removeFromParentViewController];
+            [_currentPageController didMoveToParentViewController:nil];
+            [self setCurrentPageController:target];
+
+        }
+    }
+}
+
 @end
