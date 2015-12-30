@@ -19,9 +19,12 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     _navigator = [MXNavigator new];
-    MXPageMessage *message = [[MXPageMessage alloc] initWithPageName:@"ViewController" pageNick:@"hahaha" command:@"init" args:nil callBack:nil];
+    MXPageMessage *message = [[MXPageMessage alloc] initWithPageName:@"ViewController"
+                                                            pageNick:@"rootPage"
+                                                             command:@"init"
+                                                                args:nil
+                                                            callBack:nil];
     UIViewController *vc = [UIViewController generateWithPageMessage:message];
-    [vc.view setBackgroundColor:[UIColor greenColor]];
     [_navigator setRootPageController:vc];
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     [self.window setRootViewController:_navigator];

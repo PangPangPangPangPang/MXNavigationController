@@ -10,11 +10,9 @@
 		504AB2F61BB0109F001937AF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 504AB2F51BB0109F001937AF /* main.m */; };
 		504AB2F91BB0109F001937AF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 504AB2F81BB0109F001937AF /* AppDelegate.m */; };
 		504AB2FC1BB0109F001937AF /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 504AB2FB1BB0109F001937AF /* ViewController.m */; };
-		504AB2FF1BB0109F001937AF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 504AB2FD1BB0109F001937AF /* Main.storyboard */; };
 		504AB3011BB0109F001937AF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 504AB3001BB0109F001937AF /* Images.xcassets */; };
 		504AB3041BB0109F001937AF /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 504AB3021BB0109F001937AF /* LaunchScreen.xib */; };
 		50E03DD51C1F0B5C0038BA34 /* CommonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50E03DD41C1F0B5C0038BA34 /* CommonViewController.m */; };
-		50E03DD91C206CBD0038BA34 /* Common1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50E03DD81C206CBD0038BA34 /* Common1ViewController.m */; };
 		50E03DF71C2104860038BA34 /* MXMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 50E03DE01C2104860038BA34 /* MXMessage.m */; };
 		50E03DF81C2104860038BA34 /* MXPageMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 50E03DE21C2104860038BA34 /* MXPageMessage.m */; };
 		50E03DF91C2104860038BA34 /* BaseAnimate.m in Sources */ = {isa = PBXBuildFile; fileRef = 50E03DE61C2104860038BA34 /* BaseAnimate.m */; };
@@ -45,14 +43,11 @@
 		504AB2F81BB0109F001937AF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		504AB2FA1BB0109F001937AF /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		504AB2FB1BB0109F001937AF /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		504AB2FE1BB0109F001937AF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		504AB3001BB0109F001937AF /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		504AB3031BB0109F001937AF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		504AB3091BB0109F001937AF /* MXNavigationControllerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MXNavigationControllerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		50E03DD31C1F0B5C0038BA34 /* CommonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonViewController.h; sourceTree = "<group>"; };
 		50E03DD41C1F0B5C0038BA34 /* CommonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonViewController.m; sourceTree = "<group>"; };
-		50E03DD71C206CBD0038BA34 /* Common1ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common1ViewController.h; sourceTree = "<group>"; };
-		50E03DD81C206CBD0038BA34 /* Common1ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Common1ViewController.m; sourceTree = "<group>"; };
 		50E03DDF1C2104860038BA34 /* MXMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXMessage.h; sourceTree = "<group>"; };
 		50E03DE01C2104860038BA34 /* MXMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXMessage.m; sourceTree = "<group>"; };
 		50E03DE11C2104860038BA34 /* MXPageMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXPageMessage.h; sourceTree = "<group>"; };
@@ -121,9 +116,6 @@
 				504AB2FB1BB0109F001937AF /* ViewController.m */,
 				50E03DD31C1F0B5C0038BA34 /* CommonViewController.h */,
 				50E03DD41C1F0B5C0038BA34 /* CommonViewController.m */,
-				50E03DD71C206CBD0038BA34 /* Common1ViewController.h */,
-				50E03DD81C206CBD0038BA34 /* Common1ViewController.m */,
-				504AB2FD1BB0109F001937AF /* Main.storyboard */,
 				504AB3001BB0109F001937AF /* Images.xcassets */,
 				504AB3021BB0109F001937AF /* LaunchScreen.xib */,
 				504AB2F31BB0109F001937AF /* Supporting Files */,
@@ -280,7 +272,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				504AB2FF1BB0109F001937AF /* Main.storyboard in Resources */,
 				504AB3041BB0109F001937AF /* LaunchScreen.xib in Resources */,
 				504AB3011BB0109F001937AF /* Images.xcassets in Resources */,
 			);
@@ -303,7 +294,6 @@
 				50E03DF71C2104860038BA34 /* MXMessage.m in Sources */,
 				50E03DD51C1F0B5C0038BA34 /* CommonViewController.m in Sources */,
 				50E03DF91C2104860038BA34 /* BaseAnimate.m in Sources */,
-				50E03DD91C206CBD0038BA34 /* Common1ViewController.m in Sources */,
 				50E03DFA1C2104860038BA34 /* MXAnimateHelper.m in Sources */,
 				50E03DFE1C2104860038BA34 /* UIViewController+gesture.m in Sources */,
 				50E03DFD1C2104860038BA34 /* UIViewController+generate.m in Sources */,
@@ -336,14 +326,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		504AB2FD1BB0109F001937AF /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				504AB2FE1BB0109F001937AF /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		504AB3021BB0109F001937AF /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
