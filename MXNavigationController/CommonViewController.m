@@ -36,7 +36,6 @@
                       action:@selector(onTapPop:)
             forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:_backButton];
-
     
     NSDictionary *views = @{@"_actionButton" : _actionButton,
                             @"_backButton" : _backButton};
