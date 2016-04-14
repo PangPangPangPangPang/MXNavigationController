@@ -32,3 +32,5 @@ MXNavigator是一个自定义container view controller。
 
 [Blog](http://mmmmmax.wang)
 
+###注意
+运行脚本需要node.js环境，请自行搭建。
