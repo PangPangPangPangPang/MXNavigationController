@@ -6,9 +6,9 @@
 //  Copyright (c) 2015年 Max. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "MXPageController.h"
 
-@interface ViewController : UIViewController
+@interface ViewController : MXPageController
 
 
 @end

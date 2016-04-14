@@ -20,7 +20,7 @@
     _actionButton = [UIButton new];
     [_actionButton setBackgroundColor:[UIColor blackColor]];
     [_actionButton setTranslatesAutoresizingMaskIntoConstraints:NO];
-    [_actionButton setTitle:@"back"
+    [_actionButton setTitle:@"reuse"
                    forState:UIControlStateNormal];
     [_actionButton addTarget:self
                       action:@selector(onTapBtn:)
@@ -54,7 +54,24 @@
     [constraint addObjectsFromArray:constraintArrY];
 
     [NSLayoutConstraint activateConstraints:constraint];
+    NSLog(@"PviewDidLoad");
 }
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    NSLog(@"PviewWillAppear");
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    NSLog(@"PviewWillDisAapear");
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    NSLog(@"PviewDidDisappear");
+}
+
 
 - (void)onTapPop:(id)sender {
     [[self getNavigator] gotoPageWithPageName:@"CommonViewController"
@@ -64,10 +81,19 @@
 
 }
 
++ (NSString *)barTitle {
+    return @"reuse page";
+}
+
 
 - (void)onTapBtn:(id)sender {
-    NSURL *url = [NSURL URLWithString:@"youlin://host/ViewController?nickName=rootPage"];
-    [[self getNavigator] poptoPageWithUrl:url];
+    [[self getNavigator] gotoPageWithPageName:@"ViewController"
+                                     pageNick:@"rootPage"
+                                         args:nil
+                                    animeType:AnimateR2L];
+
+//    NSURL *url = [NSURL URLWithString:@"youlin://host/ViewController?nickName=rootPage"];
+//    [[self getNavigator] poptoPageWithUrl:url];
 }
 
 

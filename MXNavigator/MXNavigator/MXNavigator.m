@@ -98,6 +98,7 @@
 
     BaseAnimate *animate = [MXAnimateHelper animateWityType:[_currentPageController getAnimateType]
                                                andDirection:AnimeBackward];
+    animate.delegate = self;
     _removedViewController = _currentPageController;
     animate.backgroundView = pageController.view;
     animate.foregroundView = _currentPageController.view;
@@ -107,11 +108,16 @@
         [animate.backgroundView addSubview:maskView];
         animate.maskView = maskView;
     }
-
     [_currentPageController willMoveToParentViewController:nil];
+    [self.view insertSubview:pageController.view
+                belowSubview:_currentPageController.view];
     [pageController willMoveToParentViewController:self];
+    
+    [self.view insertSubview:pageController.view
+                belowSubview:_currentPageController.view];
     [animate prepare];
     [animate play];
+    
     [_currentPageController removeFromParentViewController];
     [_currentPageController didMoveToParentViewController:nil];
     [pageController didMoveToParentViewController:self];
@@ -138,14 +144,15 @@
     if (pageController == _currentPageController) {
         return;
     }
-    UIViewController<MXNavigatorProtocol>* reuseViewController = [self popTargetPage:pageController];
+    UIViewController<MXNavigatorProtocol>* reuseViewController = [self pushTargetPage:pageController];
     
     if (reuseViewController) {
         pageController = reuseViewController;
     }
-    
+    _removedViewController = _currentPageController;
     BaseAnimate *animate = [MXAnimateHelper animateWityType:type
                                                andDirection:AnimeForward];
+    animate.delegate = self;
     [pageController setAnimateType:type];
     animate.backgroundView = _currentPageController.view;
     animate.foregroundView = pageController.view;
@@ -176,12 +183,11 @@
     [_pageMap setValue:currentPageController forKey:[currentPageController nickName]];
 }
 
-- (UIViewController<MXNavigatorProtocol> *)popTargetPage:(UIViewController<MXNavigatorProtocol> *)target {
+- (UIViewController<MXNavigatorProtocol> *)pushTargetPage:(UIViewController<MXNavigatorProtocol> *)target {
     UIViewController<MXNavigatorProtocol> *reusePageController = [_pageMap valueForKey:target.nickName];
     if (reusePageController) {
         reusePageController.view.transform = CGAffineTransformIdentity;
         [reusePageController removeFromParentViewController];
-        [reusePageController.view removeFromSuperview];
     }
     return reusePageController;
 }
@@ -194,7 +200,6 @@
     }
     for (NSInteger i = endIndex - 1; i >= startIndex + 1; i--) {
         UIViewController<MXNavigatorProtocol> *vc = [self.childViewControllers objectAtIndex:i];
-        [vc.view removeFromSuperview];
         [vc willMoveToParentViewController:nil];
         [vc removeFromParentViewController];
         [vc didMoveToParentViewController:nil];
@@ -257,9 +262,12 @@
         _panAnimate.maskView = maskView;
     }
     [_currentPageController willMoveToParentViewController:nil];
+    [target willMoveToParentViewController:self];
+    
+    [self.view insertSubview:target.view
+                belowSubview:_currentPageController.view];
     [_panAnimate prepare];
     [_panAnimate play];
-
 }
 
 - (void)edgePanGestureChangedNoti:(NSNotification *)noti {
@@ -282,6 +290,9 @@
     if (anime.isPanGesture) {
         if (anime.panEndProcess > 0.5) {
             [_currentPageController didMoveToParentViewController:self];
+            UIViewController<MXNavigatorProtocol> *target = [self prePageController:_currentPageController];
+            [target.view removeFromSuperview];
+            [target didMoveToParentViewController:nil];
         }else {
             UIViewController *target = [self prePageController:_removedViewController];
             [_removedViewController.view removeFromSuperview];
@@ -293,8 +304,8 @@
     }else {
         if (anime.direction == AnimeBackward) {
             [_pageMap removeObjectForKey:_removedViewController.nickName];
-            [_removedViewController.view removeFromSuperview];
         }
+        [_removedViewController.view removeFromSuperview];
     }
     _panAnimate = nil;
 }

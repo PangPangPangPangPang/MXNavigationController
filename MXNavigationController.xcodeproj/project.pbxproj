@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		503DADE41CBF8D570068EB1B /* MXPageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 503DADE31CBF8D570068EB1B /* MXPageController.m */; };
 		504AB2F61BB0109F001937AF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 504AB2F51BB0109F001937AF /* main.m */; };
 		504AB2F91BB0109F001937AF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 504AB2F81BB0109F001937AF /* AppDelegate.m */; };
 		504AB2FC1BB0109F001937AF /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 504AB2FB1BB0109F001937AF /* ViewController.m */; };
@@ -23,6 +24,7 @@
 		50E03DFE1C2104860038BA34 /* UIViewController+gesture.m in Sources */ = {isa = PBXBuildFile; fileRef = 50E03DF01C2104860038BA34 /* UIViewController+gesture.m */; };
 		50E03DFF1C2104860038BA34 /* UIViewController+mxNavi.m in Sources */ = {isa = PBXBuildFile; fileRef = 50E03DF21C2104860038BA34 /* UIViewController+mxNavi.m */; };
 		50E03E001C2104860038BA34 /* NSString+Parser.m in Sources */ = {isa = PBXBuildFile; fileRef = 50E03DF61C2104860038BA34 /* NSString+Parser.m */; };
+		50FC97EC1CAA42E1000D36CC /* Swizzling.m in Sources */ = {isa = PBXBuildFile; fileRef = 50FC97EB1CAA42E1000D36CC /* Swizzling.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		503DADE21CBF8D570068EB1B /* MXPageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXPageController.h; sourceTree = "<group>"; };
+		503DADE31CBF8D570068EB1B /* MXPageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXPageController.m; sourceTree = "<group>"; };
 		504AB2F01BB0109F001937AF /* MXNavigationController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MXNavigationController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		504AB2F41BB0109F001937AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		504AB2F51BB0109F001937AF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -69,6 +73,8 @@
 		50E03DF31C2104860038BA34 /* MXNavigator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXNavigator.h; sourceTree = "<group>"; };
 		50E03DF51C2104860038BA34 /* NSString+Parser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Parser.h"; sourceTree = "<group>"; };
 		50E03DF61C2104860038BA34 /* NSString+Parser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Parser.m"; sourceTree = "<group>"; };
+		50FC97EA1CAA42E1000D36CC /* Swizzling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Swizzling.h; sourceTree = "<group>"; };
+		50FC97EB1CAA42E1000D36CC /* Swizzling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Swizzling.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +95,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		503DADE11CBF8D490068EB1B /* MXController */ = {
+			isa = PBXGroup;
+			children = (
+				503DADE21CBF8D570068EB1B /* MXPageController.h */,
+				503DADE31CBF8D570068EB1B /* MXPageController.m */,
+			);
+			path = MXController;
+			sourceTree = "<group>";
+		};
 		504AB2E71BB0109F001937AF = {
 			isa = PBXGroup;
 			children = (
@@ -135,6 +150,7 @@
 		50E03DDD1C2104860038BA34 /* MXNavigator */ = {
 			isa = PBXGroup;
 			children = (
+				503DADE11CBF8D490068EB1B /* MXController */,
 				50E03DF41C2104860038BA34 /* MXUtil */,
 				50E03DE31C2104860038BA34 /* MXNavigator */,
 				50E03DDE1C2104860038BA34 /* MXBase */,
@@ -188,6 +204,8 @@
 			children = (
 				50E03DF51C2104860038BA34 /* NSString+Parser.h */,
 				50E03DF61C2104860038BA34 /* NSString+Parser.m */,
+				50FC97EA1CAA42E1000D36CC /* Swizzling.h */,
+				50FC97EB1CAA42E1000D36CC /* Swizzling.m */,
 			);
 			path = MXUtil;
 			sourceTree = "<group>";
@@ -241,6 +259,7 @@
 				TargetAttributes = {
 					504AB2EF1BB0109F001937AF = {
 						CreatedOnToolsVersion = 6.3.2;
+						DevelopmentTeam = 5YE49927W6;
 					};
 					504AB3081BB0109F001937AF = {
 						CreatedOnToolsVersion = 6.3.2;
@@ -292,7 +311,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				50E03DF71C2104860038BA34 /* MXMessage.m in Sources */,
+				50FC97EC1CAA42E1000D36CC /* Swizzling.m in Sources */,
 				50E03DD51C1F0B5C0038BA34 /* CommonViewController.m in Sources */,
+				503DADE41CBF8D570068EB1B /* MXPageController.m in Sources */,
 				50E03DF91C2104860038BA34 /* BaseAnimate.m in Sources */,
 				50E03DFA1C2104860038BA34 /* MXAnimateHelper.m in Sources */,
 				50E03DFE1C2104860038BA34 /* UIViewController+gesture.m in Sources */,
@@ -422,10 +443,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = MXNavigationController/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Max.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -433,10 +457,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = MXNavigationController/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Max.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

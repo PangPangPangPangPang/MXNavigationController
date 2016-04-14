@@ -48,8 +48,27 @@
                                                                         views:views];
     [constraint addObjectsFromArray:constraintArrX];
     [NSLayoutConstraint activateConstraints:constraint];
-
+    NSLog(@"FviewDidLoad");
 }
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    NSLog(@"FviewWillAppear");
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    NSLog(@"FviewWillDisAppear");
+}
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    NSLog(@"FviewDidDisappear");
+}
+
++ (NSString *)barTitle {
+    return @"root page";
+}
+
 
 - (void)onTapBtn:(id)sender {
     [[self getNavigator] gotoPageWithPageName:@"CommonViewController"
