@@ -8,6 +8,7 @@ MXNavigator是一个自定义container view controller。
 * 可以实现灵活的过场动画。
 * 将页面跳转抽象成**url**形式，方便与H5交互。
 * 支持手势返回。
+* 添加**generate.js**自动生成view controller宏
 
 ###主要接口
 

@@ -71,7 +71,7 @@
 
 
 - (void)onTapBtn:(id)sender {
-    [[self getNavigator] gotoPageWithPageName:@"CommonViewController"
+    [[self getNavigator] gotoPageWithPageName:k_COMMON_PAGE
                                      pageNick:nil
                                          args:nil
                                      animeType:AnimateR2L];

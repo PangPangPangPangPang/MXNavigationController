@@ -74,7 +74,7 @@
 
 
 - (void)onTapPop:(id)sender {
-    [[self getNavigator] gotoPageWithPageName:@"CommonViewController"
+    [[self getNavigator] gotoPageWithPageName:k_COMMON_PAGE
                                      pageNick:nil
                                          args:nil
                                     animeType:AnimateR2L];
@@ -87,7 +87,7 @@
 
 
 - (void)onTapBtn:(id)sender {
-    [[self getNavigator] gotoPageWithPageName:@"ViewController"
+    [[self getNavigator] gotoPageWithPageName:k__PAGE
                                      pageNick:@"rootPage"
                                          args:nil
                                     animeType:AnimateR2L];

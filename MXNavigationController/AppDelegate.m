@@ -19,7 +19,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     _navigator = [MXNavigator new];
-    MXPageMessage *message = [[MXPageMessage alloc] initWithPageName:@"ViewController"
+    MXPageMessage *message = [[MXPageMessage alloc] initWithPageName:k__PAGE
                                                             pageNick:@"rootPage"
                                                              command:@"init"
                                                                 args:nil

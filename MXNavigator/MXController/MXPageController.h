@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "MXNavigator.h"
+#import "PageConfig.h"
 
 @interface MXPageController : UIViewController {
     UINavigationBar *_navigationBar;
