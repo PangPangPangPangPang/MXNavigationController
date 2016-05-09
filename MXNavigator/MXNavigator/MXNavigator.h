@@ -30,8 +30,13 @@ static  NSString *const EdgePanGestureEnded = @"EdgePanGestureEnded";
 - (void)setPageName:(NSString *)pageName;
 - (NSString *)pageName;
 
+- (void)setCommond:(NSString *)commond;
+- (NSString *)commond;
+
 @optional
 - (BOOL)_MXNavigatorCanPopWithGesture;
+- (void)processWithCommond:(NSString *)commond
+                      args:(NSDictionary *)args;
 
 @end
 

@@ -37,4 +37,16 @@
     [self.view bringSubviewToFront:_navigationBar];
 }
 
+- (void)processWithCommond:(NSString *)commond
+                     args:(NSDictionary *)args {
+    if ([commond isEqualToString:@"init"]) {
+        [self processInitCommondWithArgs:(NSDictionary *)args];
+    }
+}
+
+- (void)processInitCommondWithArgs:(NSDictionary *)args {
+    NSLog(@"processInitCommondWithArgs");
+}
+
+
 @end

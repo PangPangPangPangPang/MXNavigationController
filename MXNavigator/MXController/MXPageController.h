@@ -17,5 +17,6 @@
 @property (nonatomic, retain)UINavigationBar *navigationBar;
 
 + (NSString *)barTitle;
+- (void)processInitCommondWithArgs:(NSDictionary *)args;
 
 @end

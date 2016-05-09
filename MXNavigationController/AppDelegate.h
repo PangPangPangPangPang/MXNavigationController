@@ -9,6 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "MXNavigator.h"
 
+#ifndef DEBUG
+#define NDEBUG
+#endif
+
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic)UIWindow *window;

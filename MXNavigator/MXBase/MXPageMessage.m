@@ -29,6 +29,12 @@
         }else {
             _pageNick = [NSString stringWithFormat:@"%@_%f",pageName,[NSDate date].timeIntervalSince1970];
         }
+        
+        if (command) {
+            _commond = command;
+        }else {
+            _commond = @"init";
+        }
     }
     return self;
 }

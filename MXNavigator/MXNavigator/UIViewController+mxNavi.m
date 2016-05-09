@@ -35,6 +35,15 @@
     return objc_getAssociatedObject(self, @"nickName");
 }
 
+- (void)setCommond:(NSString *)commond {
+    objc_setAssociatedObject(self, @"commond", commond, OBJC_ASSOCIATION_COPY);
+    
+}
+- (NSString *)commond {
+    return objc_getAssociatedObject(self, @"commond");
+}
+
+
 - (void)setPageName:(NSString *)pageName {
     objc_setAssociatedObject(self, @"pageName", pageName, OBJC_ASSOCIATION_COPY);
     

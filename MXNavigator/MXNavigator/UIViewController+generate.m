@@ -16,6 +16,7 @@
     UIViewController *vc = [cls new];
     [vc setNickName:message.pageNick];
     [vc setPageName:message.relative];
+    [vc setCommond:message.command];
     return vc;
 }
 

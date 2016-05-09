@@ -77,6 +77,8 @@
                                      animeType:AnimateR2L];
 }
 
+
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

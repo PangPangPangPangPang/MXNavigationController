@@ -138,9 +138,9 @@
     [self gotoPage:vc andAnimateType:type];
     
 }
-
-- (void)gotoPage:(UIViewController *)pageController andAnimateType:(MXAnimateType)type{
-    
+- (void)gotoPage:(UIViewController *)pageController
+            args:(NSDictionary *)args
+  andAnimateType:(MXAnimateType)type {
     if (pageController == _currentPageController) {
         return;
     }
@@ -163,7 +163,11 @@
         animate.maskView = maskView;
     }
     [pageController willMoveToParentViewController:self];
-
+    
+    if ([pageController respondsToSelector:@selector(processWithCommond:args:)]) {
+        [pageController processWithCommond:pageController.commond args:args];
+    }
+    
     [pageController.view setFrame:self.view.frame];
     [self.view addSubview:pageController.view];
     [self addChildViewController:pageController];
@@ -171,6 +175,14 @@
     [animate play];
     [pageController didMoveToParentViewController:self];
     [self setCurrentPageController:pageController];
+
+}
+
+- (void)gotoPage:(UIViewController *)pageController
+  andAnimateType:(MXAnimateType)type{
+    [self gotoPage:pageController
+              args:nil
+    andAnimateType:type];
 }
 
 #pragma mark -
