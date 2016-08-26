@@ -108,19 +108,19 @@
         [animate.backgroundView addSubview:maskView];
         animate.maskView = maskView;
     }
+    
     [_currentPageController willMoveToParentViewController:nil];
     [self.view insertSubview:pageController.view
                 belowSubview:_currentPageController.view];
     [pageController willMoveToParentViewController:self];
     
-    [self.view insertSubview:pageController.view
-                belowSubview:_currentPageController.view];
     [animate prepare];
     [animate play];
     
     [_currentPageController removeFromParentViewController];
     [_currentPageController didMoveToParentViewController:nil];
     [pageController didMoveToParentViewController:self];
+    
     [self setCurrentPageController:pageController];
     
 }
@@ -135,7 +135,7 @@
                                                                 args:args
                                                             callBack:nil];
     UIViewController *vc = [UIViewController generateWithPageMessage:message];
-    [self gotoPage:vc andAnimateType:type];
+    [self gotoPage:vc args:args andAnimateType:type];
     
 }
 - (void)gotoPage:(UIViewController *)pageController
@@ -162,7 +162,6 @@
         [animate.backgroundView addSubview:maskView];
         animate.maskView = maskView;
     }
-    [pageController willMoveToParentViewController:self];
     
     if ([pageController respondsToSelector:@selector(processWithCommond:args:)]) {
         [pageController processWithCommond:pageController.commond args:args];
@@ -170,10 +169,17 @@
     
     [pageController.view setFrame:self.view.frame];
     [self.view addSubview:pageController.view];
+    
     [self addChildViewController:pageController];
+    [pageController willMoveToParentViewController:self];
+    [_currentPageController willMoveToParentViewController:nil];
+    
     [animate prepare];
     [animate play];
+    
     [pageController didMoveToParentViewController:self];
+    [_currentPageController didMoveToParentViewController:nil];
+    
     [self setCurrentPageController:pageController];
 
 }
